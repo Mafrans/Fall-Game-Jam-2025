@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Fall Game Jam 2025"
+<<<<<<< Updated upstream
 run/main_scene="uid://da8jmv13vqfie"
+=======
+run/main_scene="uid://dfhdlgd1km0ti"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
