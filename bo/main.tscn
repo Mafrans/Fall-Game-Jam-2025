@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://da8jmv13vqfie"]
+
+[ext_resource type="Script" uid="uid://cqris1jou0uqo" path="res://bo/player.gd" id="1_1rb1j"]
+[ext_resource type="Texture2D" uid="uid://7b6mx2llg4xa" path="res://icon.svg" id="1_g05rp"]
+[ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="3_aot6u"]
+[ext_resource type="Script" uid="uid://d2o32ba28400j" path="res://bo/health_display.gd" id="4_1fcqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rb1j"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aot6u"]
+size = Vector2(127.82369, 127.27278)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rb1j"]
+font_size = 50
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_1rb1j")
+speed = 250.0
+max_stamina = 100.0
+stamina_regen = 20.0
+roll_speed = 750.0
+roll_cooldown = 0.5
+roll_duration = 0.4
+roll_dropoff = 200.0
+roll_stamina_drain = 35.0
+roll_stamina_penalty = 0.8
+roll_stamina_penalty_duration = 2.75
+max_health = 1.0
+attack_duration = 0.2
+attack_cooldown = 0.4
+attack_forward_thrust = 250.0
+attack_forward_boost = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_1rb1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_g05rp")
+
+[node name="Hand" type="Node2D" parent="Player"]
+
+[node name="Sword" type="Area2D" parent="Player/Hand"]
+position = Vector2(90, 1)
+scale = Vector2(0.275, 1.815)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Hand/Sword"]
+modulate = Color(0.67481464, 0.67481464, 0.6748146, 1)
+texture = ExtResource("1_g05rp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hand/Sword"]
+position = Vector2(2.1017615e-06, 3.0517578e-05)
+shape = SubResource("RectangleShape2D_aot6u")
+
+[node name="Stamina" type="Label" parent="." node_paths=PackedStringArray("player")]
+offset_left = -1408.0
+offset_top = -716.0
+offset_right = -335.0
+offset_bottom = -646.0
+text = "100/100"
+label_settings = SubResource("LabelSettings_1rb1j")
+script = ExtResource("3_aot6u")
+player = NodePath("../Player")
+
+[node name="Health" type="Label" parent="." node_paths=PackedStringArray("player")]
+offset_left = -1408.0
+offset_top = -777.0
+offset_right = -335.0
+offset_bottom = -707.0
+text = "100/100"
+label_settings = SubResource("LabelSettings_1rb1j")
+script = ExtResource("4_1fcqa")
+player = NodePath("../Player")
