@@ -38,10 +38,12 @@ var extra_velocity := Vector2.ZERO
 @onready var hand = $Hand
 @onready var sword = $Hand/Sword
 @onready var sword_sprite = $Hand/Sword/Sprite2D
+@onready var sword_collision = $Hand/Sword/CollisionShape2D
 
 func set_sword_enabled(enabled: bool):
 	sword.set_process(enabled)
 	sword_sprite.visible = enabled
+	sword_collision.disabled = not enabled
 
 func _ready() -> void:
 	set_sword_enabled(false)
@@ -74,11 +76,15 @@ func update_movement(delta: float):
 				last_roll = time
 				stamina -= roll_stamina_drain
 				
-	if input.length() > 0 and not is_attacking:
+	if input.length() > 0:
 		last_input = input
+	if not is_attacking:
 		hand.rotation = last_input.angle()
 				
 	velocity = speed * input
+	if is_attacking:
+		velocity *= 0.5
+	
 	rotation = 0
 
 func update_stamina(delta: float):
@@ -109,3 +115,20 @@ func update_attack():
 	else:
 		set_sword_enabled(false)
 	
+
+func _on_sword_body_entered(body: Node2D) -> void:
+	if body == self:
+		return
+	
+	var direction := (position - body.position).normalized()
+	extra_velocity += attack_forward_thrust * direction * 3
+
+
+func _on_sword_body_exited(body: Node2D) -> void:
+	pass
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	health -= 1
+	if health <= 0:
+		print("died :(")
