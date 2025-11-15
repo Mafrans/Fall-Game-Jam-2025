@@ -17,7 +17,7 @@ class_name Player
 @export var roll_stamina_penalty: float
 @export var roll_stamina_penalty_duration: float
 
-@export var max_health: int
+var max_health: int
 @export var max_heal_pots: int
 @export var heal_pot_duration: float
 @export var heal_pot_heal: int
@@ -59,6 +59,7 @@ func set_sword_enabled(enabled: bool):
 
 func _ready() -> void:
 	set_sword_enabled(false)
+	max_health = Global.max_health
 	stamina = max_stamina
 	health = max_health
 	heal_pots = max_heal_pots
