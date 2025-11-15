@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://da8jmv13vqfie"]
+[gd_scene load_steps=14 format=3 uid="uid://da8jmv13vqfie"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_dr3in"]
 [ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="3_aot6u"]
@@ -8,9 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dhxr0ig54duvt" path="res://bo/stone.tscn" id="8_fyjtl"]
 [ext_resource type="PackedScene" uid="uid://b06t8whwnyoj5" path="res://bo/fire_bullet.tscn" id="8_urq0n"]
 [ext_resource type="PackedScene" path="res://otto/bossbar.tscn" id="9_fyjtl"]
+[ext_resource type="PackedScene" uid="uid://cybo5dsjay7vg" path="res://bo/heart.tscn" id="9_v7fas"]
+[ext_resource type="Theme" uid="uid://bfeghqd2s21j8" path="res://otto/start.tres" id="10_133m2"]
+[ext_resource type="PackedScene" uid="uid://dixwvct3uf3kf" path="res://bo/heal_pot.tscn" id="10_v7fas"]
+[ext_resource type="Script" uid="uid://5nfgbcurht0c" path="res://bo/gold_display.gd" id="12_158ms"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1rb1j"]
-font_size = 20
+[sub_resource type="LabelSettings" id="LabelSettings_133m2"]
 
 [node name="Main" type="Node2D"]
 
@@ -22,37 +25,6 @@ zoom = Vector2(1.5, 1.5)
 position = Vector2(0, -167)
 scale = Vector2(0.6, 0.6)
 boss = NodePath("../Boss")
-
-[node name="Health" type="Label" parent="." node_paths=PackedStringArray("player")]
-offset_left = -621.0
-offset_top = -771.0
-offset_right = 452.0
-offset_bottom = -737.0
-text = "Health"
-label_settings = SubResource("LabelSettings_1rb1j")
-script = ExtResource("4_1fcqa")
-player = NodePath("../Player")
-metadata/_edit_use_anchors_ = true
-
-[node name="Stamina" type="Label" parent="." node_paths=PackedStringArray("player")]
-offset_left = -621.0
-offset_top = -745.0
-offset_right = 452.0
-offset_bottom = -714.0
-text = "Stamina"
-label_settings = SubResource("LabelSettings_1rb1j")
-script = ExtResource("3_aot6u")
-player = NodePath("../Player")
-
-[node name="HealPots" type="Label" parent="." node_paths=PackedStringArray("player")]
-offset_left = -621.0
-offset_top = -715.0
-offset_right = 452.0
-offset_bottom = -681.0
-text = "Healing Potions"
-label_settings = SubResource("LabelSettings_1rb1j")
-script = ExtResource("4_x81rt")
-player = NodePath("../Player")
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player", "swipe_left_start", "swipe_right_start", "swipe_end") instance=ExtResource("5_dr3in")]
 position = Vector2(0, -749)
@@ -83,5 +55,38 @@ position = Vector2(3, -268)
 position = Vector2(0, -723.00006)
 scale = Vector2(0.37, 0.37)
 boss = NodePath("../Boss")
+
+[node name="HUD" type="VBoxContainer" parent="."]
+offset_left = -622.0
+offset_top = -301.0
+offset_right = -207.0
+offset_bottom = -91.0
+alignment = 2
+
+[node name="HealPots" type="HBoxContainer" parent="HUD" node_paths=PackedStringArray("player")]
+layout_mode = 2
+script = ExtResource("4_x81rt")
+heart = ExtResource("10_v7fas")
+player = NodePath("../../Player")
+
+[node name="Hearts" type="HBoxContainer" parent="HUD" node_paths=PackedStringArray("player")]
+layout_mode = 2
+script = ExtResource("4_1fcqa")
+heart = ExtResource("9_v7fas")
+player = NodePath("../../Player")
+
+[node name="Stamina" type="ProgressBar" parent="HUD" node_paths=PackedStringArray("player")]
+layout_mode = 2
+theme = ExtResource("10_133m2")
+value = 50.0
+script = ExtResource("3_aot6u")
+player = NodePath("../../Player")
+
+[node name="Gold" type="Label" parent="HUD"]
+layout_mode = 2
+theme = ExtResource("10_133m2")
+text = "50 gold"
+label_settings = SubResource("LabelSettings_133m2")
+script = ExtResource("12_158ms")
 
 [connection signal="damage_target" from="Player" to="Boss" method="_on_player_damage_target"]

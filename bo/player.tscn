@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://q7n36fbceqxr"]
+[gd_scene load_steps=20 format=3 uid="uid://q7n36fbceqxr"]
 
 [ext_resource type="Script" uid="uid://cqris1jou0uqo" path="res://bo/player.gd" id="1_lwegl"]
 [ext_resource type="Texture2D" uid="uid://qq5m1er5lcj6" path="res://bo/player/player_idle.png" id="2_h7ryt"]
+[ext_resource type="Texture2D" uid="uid://cxqyxbjusseko" path="res://bo/Shadow.png" id="2_l81s4"]
 [ext_resource type="Texture2D" uid="uid://cjv26f1tmqo0r" path="res://bo/player/player_attack_1_1.png" id="2_wfv7e"]
 [ext_resource type="Texture2D" uid="uid://mi7p14ifp2ov" path="res://bo/player/player_attack_1_2.png" id="3_nfdmq"]
 [ext_resource type="Texture2D" uid="uid://dm3pi03b4tiyl" path="res://bo/player/player_attack_1_3.png" id="4_l81s4"]
@@ -87,7 +88,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aot6u"]
-size = Vector2(127.82369, 127.27278)
+size = Vector2(180.27547, 127.27278)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wfv7e"]
 radius = 25.0
@@ -113,6 +114,12 @@ attack_cooldown = 0.4
 attack_forward_thrust = 50.0
 attack_forward_boost = 1.0
 
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-2, 42)
+scale = Vector2(0.215, 0.215)
+texture = ExtResource("2_l81s4")
+
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -125,8 +132,9 @@ shape = SubResource("CapsuleShape2D_lc5c0")
 position = Vector2(7, -1)
 scale = Vector2(0.26, 0.26)
 sprite_frames = SubResource("SpriteFrames_lwegl")
-animation = &"heal"
+animation = &"attack_2"
 autoplay = "idle"
+frame_progress = 0.93050265
 
 [node name="Hand" type="Node2D" parent="."]
 
@@ -135,7 +143,8 @@ position = Vector2(90, 1)
 scale = Vector2(0.275, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Sword"]
-position = Vector2(-105.454544, 3.0517578e-05)
+position = Vector2(-79.22861, 3.0517578e-05)
+scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_aot6u")
 
 [node name="Hurtbox" type="Area2D" parent="."]

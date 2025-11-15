@@ -1,6 +1,7 @@
-extends Label
+extends ProgressBar
 
 @export var player: Player;
 
 func _process(delta: float) -> void:
-	text = "Stamina: " + str(player.stamina) + "/" + str(player.max_stamina)
+	max_value = player.max_stamina
+	value = player.stamina

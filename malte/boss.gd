@@ -92,7 +92,7 @@ func swipe():
 	hand.preferred_rotation = swipe_end.global_rotation
 	await wait_secs(0.4)
 	hand.set_hurtbox_active(false)
-	await wait_secs(0.8)
+	await wait_secs(1.6)
 
 func hover():
 	animate_hands = false
@@ -106,7 +106,7 @@ func hover():
 	
 	var final_target := player.position
 	right_hand.preferred_position = final_target + Vector2(0, -380.)
-	await wait_secs(0.2)
+	await wait_secs(0.4)
 	
 	right_hand.preferred_position = final_target
 	right_hand.set_hurtbox_active(true)
@@ -115,7 +115,7 @@ func hover():
 	
 	right_hand.set_hurtbox_active(false)
 	right_hand.set_punch_sprite(false)
-	await wait_secs(0.8)
+	await wait_secs(1.6)
 	right_hand.preferred_rotation = 0.
 
 func fire_breath():

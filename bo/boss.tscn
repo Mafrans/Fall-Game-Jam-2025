@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6dv2bgjvkk5x"]
+[gd_scene load_steps=18 format=3 uid="uid://c6dv2bgjvkk5x"]
 
 [ext_resource type="Script" uid="uid://bwohgrtv5tvi" path="res://malte/boss.gd" id="1_rwpn6"]
 [ext_resource type="Script" uid="uid://de7dvgi7bja6w" path="res://malte/body.gd" id="2_148pb"]
+[ext_resource type="Texture2D" uid="uid://cxqyxbjusseko" path="res://bo/Shadow.png" id="3_jrs63"]
 [ext_resource type="Texture2D" uid="uid://cdxeern22tvpg" path="res://malte/body.png" id="3_q3tm6"]
 [ext_resource type="Script" uid="uid://dw65a08ccqbt4" path="res://malte/left_hand.gd" id="4_10b6s"]
 [ext_resource type="Texture2D" uid="uid://bty6yae20sns" path="res://malte/hand_left.png" id="5_jrs63"]
@@ -48,10 +49,15 @@ texture = ExtResource("3_q3tm6")
 
 [node name="Left Hand" type="Area2D" parent="Body"]
 position = Vector2(298.57147, 142.8572)
-rotation = 0.12217305
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("4_10b6s")
+
+[node name="Shadow" type="Sprite2D" parent="Body/Left Hand"]
+z_index = -1
+position = Vector2(40.810905, 461.3222)
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("3_jrs63")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Left Hand"]
 position = Vector2(5.055751, 114.76888)
@@ -76,6 +82,12 @@ collision_layer = 2
 script = ExtResource("6_u17vx")
 default_sprite = NodePath("Sprite2D")
 punch_hand_sprite = NodePath("PunchHand")
+
+[node name="Shadow" type="Sprite2D" parent="Body/Right Hand"]
+z_index = -1
+position = Vector2(-2.8571777, 420.0001)
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("3_jrs63")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Right Hand"]
 position = Vector2(0, 99.43374)

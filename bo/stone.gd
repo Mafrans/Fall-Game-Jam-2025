@@ -15,17 +15,20 @@ var target_pos := Vector2.ZERO
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var hitbox: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var sprite := $Sprite2D
+@onready var shadow := $Shadow
 
 var rng = RandomNumberGenerator.new()
+var sprite_scale := 0.
 
 func _ready() -> void:
 	fall_velocity = Vector2(0, start_speed)
 	var sprite_index = rng.randi_range(0, len(sprites) - 1)
 	sprite.texture = sprites[sprite_index]
 	
-	var scale = sprite_scales[sprite_index]
-	collider.scale = Vector2(scale, scale)
-	hitbox.scale = Vector2(scale, scale)
+	sprite_scale = sprite_scales[sprite_index]
+	collider.scale = Vector2(sprite_scale, sprite_scale)
+	hitbox.scale = Vector2(sprite_scale, sprite_scale)
+	shadow.scale = Vector2(sprite_scale, sprite_scale)
 	
 	sprite.flip_h = rng.randf() > 0.5
 
@@ -41,9 +44,14 @@ func _process(delta: float) -> void:
 		queue_free()
 		return
 	
+	shadow.global_position = target_pos
+	var shadow_scale = sprite_scale * (1 - position.distance_to(target_pos) / 1000.) / 2.
+	shadow.scale = Vector2(shadow_scale, shadow_scale)
+	
 	if position.y > target_pos.y:
 		collider.disabled = false
 		hitbox.disabled = true
+		#shadow.visible = false
 		return
 	
 	if position.distance_to(target_pos) < damage_threshold:
