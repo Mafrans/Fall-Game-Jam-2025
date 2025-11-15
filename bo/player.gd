@@ -196,6 +196,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if is_invincible or is_dead:
 		return
 	
+	
 	is_invincible = true
 	($HitTimer as Timer).start()
 	
