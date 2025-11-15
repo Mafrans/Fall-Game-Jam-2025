@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3mve21cjuf8o"]
+
+[ext_resource type="Script" uid="uid://bk35uv5tufu1" path="res://otto/bossbar.gd" id="1_e77l1"]
+[ext_resource type="Texture2D" uid="uid://dirrx0dmi6sf0" path="res://otto/bossbar.webp" id="3_thnah"]
+
+[node name="Bossbar" type="Node2D"]
+position = Vector2(0, -3)
+script = ExtResource("1_e77l1")
+health = 80.0
+max_health = 100.0
+
+[node name="Bossbar" type="Sprite2D" parent="."]
+texture = ExtResource("3_thnah")
+
+[node name="Bar" type="Node2D" parent="."]
+position = Vector2(-693, 57.000004)
+scale = Vector2(34.65, 1.12)
+
+[node name="ColorRect" type="ColorRect" parent="Bar"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 0.39607844)

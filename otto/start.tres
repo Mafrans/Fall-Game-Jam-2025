@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://8ywflfwlqq8h"]
+
+[ext_resource type="FontFile" uid="uid://dn3p083tt1e8b" path="res://otto/ModernAntiqua-Regular.ttf" id="1_2uvnb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uvnb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2uvnb"]
+
+[resource]
+default_font = ExtResource("1_2uvnb")
+Label/colors/font_color = Color(0.92156863, 0.85882354, 0.69803923, 1)
+Label/colors/font_outline_color = Color(0.16, 0.16, 0.16, 0.78431374)
+Label/fonts/font = ExtResource("1_2uvnb")
+Label/styles/focus = SubResource("StyleBoxFlat_2uvnb")
+Label/styles/normal = SubResource("StyleBoxEmpty_2uvnb")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://da8jmv13vqfie"]
+[gd_scene load_steps=11 format=3 uid="uid://da8jmv13vqfie"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_dr3in"]
 [ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="3_aot6u"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://rt1iidsgpn7u" path="res://bo/boss_health_display.gd" id="5_xx4b5"]
 [ext_resource type="PackedScene" uid="uid://dhxr0ig54duvt" path="res://bo/stone.tscn" id="8_fyjtl"]
 [ext_resource type="PackedScene" uid="uid://b06t8whwnyoj5" path="res://bo/fire_bullet.tscn" id="8_urq0n"]
+[ext_resource type="PackedScene" uid="uid://c3mve21cjuf8o" path="res://otto/bossbar.tscn" id="9_fyjtl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1rb1j"]
 font_size = 20
@@ -89,5 +90,10 @@ rotation = -1.5707964
 
 [node name="SwipeEnd" type="Node2D" parent="Markers"]
 position = Vector2(3, -268)
+
+[node name="Bossbar" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("9_fyjtl")]
+position = Vector2(0, -607.00006)
+scale = Vector2(0.37, 0.37)
+boss = NodePath("../Boss")
 
 [connection signal="damage_target" from="Player" to="Boss" method="_on_player_damage_target"]
