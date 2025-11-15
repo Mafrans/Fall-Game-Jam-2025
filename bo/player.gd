@@ -161,7 +161,7 @@ func _on_sword_body_entered(body: Node2D) -> void:
 	
 	boss.health -= 1.
 	
-	Engine.time_scale = 0.2
+	Engine.time_scale = 0.4
 	await wait_secs(0.08)
 	Engine.time_scale = 1
 

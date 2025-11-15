@@ -75,6 +75,7 @@ fire_bullet = ExtResource("8_urq0n")
 stone_area_center = Vector2(0, -250)
 stone_area_size = Vector2(500, 125)
 stone_scene = ExtResource("8_fyjtl")
+counter_threshold = 400.0
 
 [node name="Markers" type="Node2D" parent="."]
 

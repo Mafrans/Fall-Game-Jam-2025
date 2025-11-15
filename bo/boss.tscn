@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6dv2bgjvkk5x"]
+[gd_scene load_steps=16 format=3 uid="uid://c6dv2bgjvkk5x"]
 
 [ext_resource type="Script" uid="uid://bwohgrtv5tvi" path="res://malte/boss.gd" id="1_rwpn6"]
 [ext_resource type="Script" uid="uid://de7dvgi7bja6w" path="res://malte/body.gd" id="2_148pb"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://d157grkutsbyn" path="res://malte/hand_right.png" id="7_cbj66"]
 [ext_resource type="Script" uid="uid://1ocf1emugwil" path="res://malte/head.gd" id="8_i7cgb"]
 [ext_resource type="Texture2D" uid="uid://dsu1xk054jv0c" path="res://malte/head.png" id="9_udaof"]
+[ext_resource type="Texture2D" uid="uid://dj5dqgxjtqtt1" path="res://malte/head_left.png" id="10_q3tm6"]
+[ext_resource type="Texture2D" uid="uid://c56ukpwwqupul" path="res://malte/head_right.png" id="11_10b6s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwpn6"]
 radius = 132.85718
@@ -91,6 +93,9 @@ shape = SubResource("CircleShape2D_q3tm6")
 position = Vector2(2.8571434, -90)
 scale = Vector2(0.9999998, 0.9999998)
 script = ExtResource("8_i7cgb")
+normal_sprite = ExtResource("9_udaof")
+left_sprite = ExtResource("11_10b6s")
+right_sprite = ExtResource("10_q3tm6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Head"]
 position = Vector2(3, 1)
