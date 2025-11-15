@@ -198,4 +198,4 @@ func _on_hit_timer_timeout() -> void:
 
 
 func _on_respawn_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://bo/start.tscn")
+	get_tree().change_scene_to_file("res://otto/start.tscn")
