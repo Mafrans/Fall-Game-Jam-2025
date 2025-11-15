@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://gqfpu0jufaf8" path="res://otto/shop_keeper.gd" id="4_i6ofk"]
 [ext_resource type="Script" uid="uid://dacxu0vph8nct" path="res://otto/ui.gd" id="5_pya1m"]
 [ext_resource type="Texture2D" uid="uid://7b6mx2llg4xa" path="res://icon.svg" id="6_iyph2"]
+[ext_resource type="Theme" uid="uid://8ywflfwlqq8h" path="res://otto/start.tres" id="6_ti35s"]
 [ext_resource type="FontFile" uid="uid://dn3p083tt1e8b" path="res://otto/ModernAntiqua-Regular.ttf" id="6_xeus7"]
 [ext_resource type="Script" uid="uid://bertdsmf600i2" path="res://otto/dummy.gd" id="7_xeus7"]
 
@@ -12,9 +13,6 @@
 size = Vector2(128, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pya1m"]
-
-[sub_resource type="Theme" id="Theme_ti35s"]
-default_font = ExtResource("6_xeus7")
 
 [sub_resource type="LabelSettings" id="LabelSettings_xeus7"]
 font = ExtResource("6_xeus7")
@@ -69,15 +67,16 @@ offset_left = -197.0
 offset_top = 57.0
 offset_right = -69.0
 offset_bottom = 131.0
+theme = ExtResource("6_ti35s")
 
 [node name="Health" type="Button" parent="ShopKeeper/UI/Shop"]
 layout_mode = 2
-theme = SubResource("Theme_ti35s")
+theme = ExtResource("6_ti35s")
 text = "+health (3 gold)"
 
 [node name="Agility" type="Button" parent="ShopKeeper/UI/Shop"]
 layout_mode = 2
-theme = SubResource("Theme_ti35s")
+theme = ExtResource("6_ti35s")
 text = "+agility (3 gold)"
 
 [node name="Dialog" type="Sprite2D" parent="ShopKeeper/UI"]

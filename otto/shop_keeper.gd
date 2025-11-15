@@ -29,6 +29,7 @@ func _on_health_pressed() -> void:
 		set_dialog(DIALOGS["success"])
 	else:
 		set_dialog(DIALOGS["fail"])
+		mood_angry()
 
 func _on_agility_pressed() -> void:
 	if pay(3):
@@ -36,6 +37,7 @@ func _on_agility_pressed() -> void:
 		set_dialog(DIALOGS["success"])
 	else:
 		set_dialog(DIALOGS["fail"])
+		mood_angry()
 
 func _ready() -> void:
 	typewriter.autowrap_mode = TextServer.AUTOWRAP_WORD
@@ -52,11 +54,14 @@ func player_enter() -> void:
 	is_active = true
 	set_dialog(DIALOGS["welcome"])
 	ui.visible = true;
+	$UI/Shop/Health.grab_focus()
 
 func player_leave() -> void:
 	is_active = false
 	ui.visible = false;
-	
+
+func mood_angry() -> void:
+	$Sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)	
 
 func _process(delta: float) -> void:
 	var player_distance := position.distance_to(player.position)
