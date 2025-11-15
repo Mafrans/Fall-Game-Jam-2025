@@ -58,7 +58,7 @@ func hands_idle() -> void:
 	left_hand.hover(delta)
 	right_hand.hover(delta)
 
-var attacks := [fire_breath, swipe, hover, stone_rain]
+var attacks := [hover, fire_breath, stone_rain, swipe]
 
 func state_machine():
 	await wait_secs(3)
@@ -106,14 +106,15 @@ func hover():
 	
 	var final_target := player.position
 	right_hand.preferred_position = final_target + Vector2(0, -380.)
-	right_hand.preferred_rotation = PI / 2
 	await wait_secs(0.2)
 	
 	right_hand.preferred_position = final_target
 	right_hand.set_hurtbox_active(true)
+	right_hand.set_punch_sprite(true)
 	await wait_secs(0.4)
 	
 	right_hand.set_hurtbox_active(false)
+	right_hand.set_punch_sprite(false)
 	await wait_secs(0.8)
 	right_hand.preferred_rotation = 0.
 

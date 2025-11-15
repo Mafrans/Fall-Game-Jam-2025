@@ -1,6 +1,9 @@
 class_name RightHand
 extends Node2D
 
+@export var default_sprite: Sprite2D
+@export var punch_hand_sprite: Sprite2D
+
 var preferred_position = Vector2()
 var preferred_rotation = 0
 
@@ -13,6 +16,10 @@ func _ready() -> void:
 
 func set_hurtbox_active(active: bool) -> void:
 	hurtbox.disabled = !active
+
+func set_punch_sprite(active: bool) -> void:
+	default_sprite.visible = not active
+	punch_hand_sprite.visible = active
 
 func hover(delta: float) -> void:
 	var t = Time.get_ticks_msec() / 1000. + 5./7.
