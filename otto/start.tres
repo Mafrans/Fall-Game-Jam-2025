@@ -1,18 +1,9 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://8ywflfwlqq8h"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://8ywflfwlqq8h"]
 
 [ext_resource type="FontFile" uid="uid://dn3p083tt1e8b" path="res://otto/ModernAntiqua-Regular.ttf" id="1_2uvnb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xxh7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.92156863, 0.85882354, 0.69803923, 1)
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
+bg_color = Color(0.63224405, 0.41671503, 0.12679082, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxiwu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -23,27 +14,12 @@ border_width_bottom = 2
 border_color = Color(0.92156863, 0.85882354, 0.69803923, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xowhw"]
-bg_color = Color(0.16, 0.16, 0.16, 0.78431374)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.92156863, 0.85882354, 0.69803923, 1)
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+bg_color = Color(0.8094503, 0.5328782, 0.13499787, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s57dc"]
 bg_color = Color(0.92, 0.85744005, 0.6992, 0.09803922)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uvnb"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xowhw"]
-bg_color = Color(0.8094503, 0.5328782, 0.13499787, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xxh7"]
-bg_color = Color(0.63224405, 0.41671503, 0.12679082, 1)
 
 [resource]
 default_font = ExtResource("1_2uvnb")
