@@ -1,5 +1,5 @@
 class_name Body
-extends Node2D
+extends CharacterBody2D
 
 var preferred_position = Vector2()
 var preferred_rotation = 0

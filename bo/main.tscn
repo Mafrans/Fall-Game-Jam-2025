@@ -1,18 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://da8jmv13vqfie"]
+[gd_scene load_steps=11 format=3 uid="uid://da8jmv13vqfie"]
 
-[ext_resource type="Script" uid="uid://cqris1jou0uqo" path="res://bo/player.gd" id="1_1rb1j"]
+[ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_dr3in"]
 [ext_resource type="Texture2D" uid="uid://7b6mx2llg4xa" path="res://icon.svg" id="1_g05rp"]
 [ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="3_aot6u"]
 [ext_resource type="Script" uid="uid://d2o32ba28400j" path="res://bo/health_display.gd" id="4_1fcqa"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rb1j"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aot6u"]
-size = Vector2(127.82369, 127.27278)
+[ext_resource type="Script" uid="uid://djfvsx0ew7aby" path="res://bo/heal_pots_display.gd" id="4_x81rt"]
+[ext_resource type="PackedScene" uid="uid://c6dv2bgjvkk5x" path="res://bo/boss.tscn" id="5_dr3in"]
+[ext_resource type="Script" uid="uid://rt1iidsgpn7u" path="res://bo/boss_health_display.gd" id="5_xx4b5"]
+[ext_resource type="PackedScene" uid="uid://b06t8whwnyoj5" path="res://bo/fire_bullet.tscn" id="8_urq0n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1rb1j"]
-font_size = 50
+font_size = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fcqa"]
 size = Vector2(128, 128)
@@ -20,73 +18,59 @@ size = Vector2(128, 128)
 [node name="Main" type="Node2D"]
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
+position = Vector2(0, -399)
+zoom = Vector2(1.8, 1.8)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_1rb1j")
-speed = 250.0
-max_stamina = 100.0
-stamina_regen = 20.0
-roll_speed = 800.0
-roll_cooldown = 0.5
-roll_duration = 0.4
-roll_dropoff = 200.0
-roll_stamina_drain = 35.0
-roll_stamina_penalty = 0.8
-roll_stamina_penalty_duration = 2.75
-max_health = 1.0
-attack_duration = 0.3
-attack_cooldown = 0.4
-attack_forward_thrust = 250.0
-attack_forward_boost = 3.0
+[node name="Player" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("1_dr3in")]
+position = Vector2(0, -167)
+scale = Vector2(0.6, 0.6)
+boss = NodePath("../Boss")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_1rb1j")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_g05rp")
-
-[node name="Hand" type="Node2D" parent="Player"]
-
-[node name="Sword" type="Area2D" parent="Player/Hand"]
-position = Vector2(90, 1)
-scale = Vector2(0.275, 1.5)
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Hand/Sword"]
-modulate = Color(0.67481464, 0.67481464, 0.6748146, 1)
-texture = ExtResource("1_g05rp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hand/Sword"]
-position = Vector2(2.1017615e-06, 3.0517578e-05)
-shape = SubResource("RectangleShape2D_aot6u")
-
-[node name="Hurtbox" type="Area2D" parent="Player"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hurtbox"]
-shape = SubResource("RectangleShape2D_1rb1j")
+[node name="Health" type="Label" parent="." node_paths=PackedStringArray("player")]
+offset_left = -515.0
+offset_top = -683.0
+offset_right = 558.0
+offset_bottom = -649.0
+text = "Health"
+label_settings = SubResource("LabelSettings_1rb1j")
+script = ExtResource("4_1fcqa")
+player = NodePath("../Player")
+metadata/_edit_use_anchors_ = true
 
 [node name="Stamina" type="Label" parent="." node_paths=PackedStringArray("player")]
-offset_left = -1408.0
-offset_top = -716.0
-offset_right = -335.0
-offset_bottom = -646.0
-text = "100/100"
+offset_left = -515.0
+offset_top = -657.0
+offset_right = 558.0
+offset_bottom = -626.0
+text = "Stamina"
 label_settings = SubResource("LabelSettings_1rb1j")
 script = ExtResource("3_aot6u")
 player = NodePath("../Player")
 
-[node name="Health" type="Label" parent="." node_paths=PackedStringArray("player")]
-offset_left = -1408.0
-offset_top = -777.0
-offset_right = -335.0
-offset_bottom = -707.0
-text = "100/100"
+[node name="HealPots" type="Label" parent="." node_paths=PackedStringArray("player")]
+offset_left = -515.0
+offset_top = -627.0
+offset_right = 558.0
+offset_bottom = -593.0
+text = "Healing Potions"
 label_settings = SubResource("LabelSettings_1rb1j")
-script = ExtResource("4_1fcqa")
+script = ExtResource("4_x81rt")
 player = NodePath("../Player")
 
+[node name="BossHealth" type="Label" parent="." node_paths=PackedStringArray("boss")]
+offset_left = -515.0
+offset_top = -594.0
+offset_right = 558.0
+offset_bottom = -560.0
+text = "Boss Health"
+label_settings = SubResource("LabelSettings_1rb1j")
+script = ExtResource("5_xx4b5")
+boss = NodePath("../Boss")
+metadata/_edit_use_anchors_ = true
+
 [node name="Node2D" type="StaticBody2D" parent="."]
-position = Vector2(675, -2)
+position = Vector2(402, -282)
+scale = Vector2(0.4, 0.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
 shape = SubResource("RectangleShape2D_1fcqa")
@@ -95,6 +79,33 @@ shape = SubResource("RectangleShape2D_1fcqa")
 modulate = Color(1, 0, 0, 1)
 texture = ExtResource("1_g05rp")
 
-[connection signal="body_entered" from="Player/Hand/Sword" to="Player" method="_on_sword_body_entered"]
-[connection signal="body_exited" from="Player/Hand/Sword" to="Player" method="_on_sword_body_exited"]
-[connection signal="area_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_area_entered"]
+[node name="Node2D2" type="Area2D" parent="."]
+position = Vector2(402, -178)
+scale = Vector2(0.4, 0.4)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2"]
+shape = SubResource("RectangleShape2D_1fcqa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_g05rp")
+
+[node name="Boss" parent="." node_paths=PackedStringArray("player", "swipe_left_start", "swipe_right_start", "swipe_end") instance=ExtResource("5_dr3in")]
+position = Vector2(0, -693)
+player = NodePath("../Player")
+swipe_left_start = NodePath("../Markers/SwipeLeftStart")
+swipe_right_start = NodePath("../Markers/SwipeRightStart")
+swipe_end = NodePath("../Markers/SwipeEnd")
+fire_bullet = ExtResource("8_urq0n")
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="SwipeRightStart" type="Node2D" parent="Markers"]
+position = Vector2(-440, -616)
+
+[node name="SwipeLeftStart" type="Node2D" parent="Markers"]
+position = Vector2(449, -588)
+
+[node name="SwipeEnd" type="Node2D" parent="Markers"]
+position = Vector2(1, -213)

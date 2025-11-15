@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7x3k0sjmxnyq"]
+
+[ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_hhuon"]
+[ext_resource type="Script" uid="uid://d07smm1l12lok" path="res://bo/door.gd" id="2_54lrv"]
+[ext_resource type="Texture2D" uid="uid://7b6mx2llg4xa" path="res://icon.svg" id="6_iyph2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwq13"]
+size = Vector2(128, 128)
+
+[node name="Start" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -399)
+zoom = Vector2(1.8, 1.8)
+
+[node name="Player" parent="." instance=ExtResource("1_hhuon")]
+position = Vector2(0, -167)
+scale = Vector2(0.6, 0.6)
+speed = 150.0
+stamina_regen = 25.0
+roll_speed = 600.0
+roll_duration = 0.3
+roll_dropoff = 200.0
+roll_stamina_penalty = 0.9
+max_health = 3
+max_heal_pots = 2
+heal_pot_duration = 1.5
+heal_pot_heal = 1
+attack_forward_thrust = 50.0
+attack_forward_boost = 1.0
+
+[node name="Door" type="Area2D" parent="."]
+modulate = Color(0.5662982, 0.5662982, 0.5662982, 1)
+position = Vector2(0, -707)
+scale = Vector2(2.74, 0.265)
+script = ExtResource("2_54lrv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+texture = ExtResource("6_iyph2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_nwq13")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

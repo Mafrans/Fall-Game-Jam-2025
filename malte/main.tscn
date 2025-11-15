@@ -1,61 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfhdlgd1km0ti"]
+[gd_scene load_steps=4 format=3 uid="uid://dfhdlgd1km0ti"]
 
-[ext_resource type="Script" uid="uid://bwohgrtv5tvi" path="res://malte/boss.gd" id="1_37kat"]
-[ext_resource type="Texture2D" uid="uid://dsu1xk054jv0c" path="res://malte/head.png" id="2_jbs3u"]
-[ext_resource type="Texture2D" uid="uid://cdxeern22tvpg" path="res://malte/body.png" id="2_l737r"]
-[ext_resource type="Script" uid="uid://de7dvgi7bja6w" path="res://malte/body.gd" id="2_w4ck4"]
-[ext_resource type="Texture2D" uid="uid://bty6yae20sns" path="res://malte/hand_left.png" id="3_arbra"]
-[ext_resource type="Script" uid="uid://dw65a08ccqbt4" path="res://malte/left_hand.gd" id="3_o0lhw"]
-[ext_resource type="Texture2D" uid="uid://d157grkutsbyn" path="res://malte/hand_right.png" id="4_l737r"]
-[ext_resource type="Script" uid="uid://ch48yhjovlhfi" path="res://malte/right_hand.gd" id="5_6dg7o"]
-[ext_resource type="Script" uid="uid://b2cdmtoqmiy8i" path="res://malte/player.gd" id="5_arbra"]
+[ext_resource type="PackedScene" uid="uid://c6dv2bgjvkk5x" path="res://bo/boss.tscn" id="1_hb4vi"]
 [ext_resource type="Texture2D" uid="uid://b6a3e658bsrgh" path="res://malte/player.png" id="6_l737r"]
-[ext_resource type="Script" uid="uid://1ocf1emugwil" path="res://malte/head.gd" id="7_mbke5"]
+
+[sub_resource type="GDScript" id="GDScript_mbke5"]
+script/source = "class_name Player
+extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func _physics_process(delta: float) -> void:
+	var move = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	if move.length_squared() > 0.01:
+		translate(move * delta * 250)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Main" type="Node2D"]
 
-[node name="Boss" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Boss" parent="." instance=ExtResource("1_hb4vi")]
 position = Vector2(-1.0000038, -275.99997)
-scale = Vector2(0.7, 0.7)
-script = ExtResource("1_37kat")
-player = NodePath("../Player")
-
-[node name="Body" type="Node2D" parent="Boss"]
-position = Vector2(5.449567e-06, 91.42852)
-script = ExtResource("2_w4ck4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boss/Body"]
-scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("2_l737r")
-
-[node name="Left Hand" type="Node2D" parent="Boss/Body"]
-position = Vector2(286.8571, 57.142868)
-scale = Vector2(0.99999994, 0.99999994)
-script = ExtResource("3_o0lhw")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boss/Body/Left Hand"]
-texture = ExtResource("3_arbra")
-
-[node name="Right Hand" type="Node2D" parent="Boss/Body"]
-position = Vector2(-287.14285, 57.14286)
-scale = Vector2(0.9999998, 0.9999998)
-script = ExtResource("5_6dg7o")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boss/Body/Right Hand"]
-texture = ExtResource("4_l737r")
-
-[node name="Head" type="Node2D" parent="Boss/Body"]
-position = Vector2(2.8571434, -90)
-scale = Vector2(0.9999998, 0.9999998)
-script = ExtResource("7_mbke5")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boss/Body/Head"]
-position = Vector2(3, 1)
-texture = ExtResource("2_jbs3u")
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(0, 1)
-script = ExtResource("5_arbra")
+script = SubResource("GDScript_mbke5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 scale = Vector2(0.255, 0.255)

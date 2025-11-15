@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://q7n36fbceqxr"]
+
+[ext_resource type="Script" uid="uid://cqris1jou0uqo" path="res://bo/player.gd" id="1_lwegl"]
+[ext_resource type="Texture2D" uid="uid://b6a3e658bsrgh" path="res://malte/player.png" id="2_h7ryt"]
+[ext_resource type="Texture2D" uid="uid://7b6mx2llg4xa" path="res://icon.svg" id="2_ogdyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rb1j"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aot6u"]
+size = Vector2(127.82369, 127.27278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogdyq"]
+size = Vector2(90, 90)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_lwegl")
+speed = 150.0
+max_stamina = 100.0
+stamina_regen = 25.0
+roll_speed = 700.0
+roll_cooldown = 0.5
+roll_duration = 0.35
+roll_dropoff = 250.0
+roll_stamina_drain = 35.0
+roll_stamina_penalty = 0.9
+roll_stamina_penalty_duration = 2.75
+max_health = 3
+max_heal_pots = 2
+heal_pot_duration = 1.5
+heal_pot_heal = 1
+attack_duration = 0.3
+attack_cooldown = 0.4
+attack_forward_thrust = 50.0
+attack_forward_boost = 1.0
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, -2)
+shape = SubResource("RectangleShape2D_1rb1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_h7ryt")
+
+[node name="Hand" type="Node2D" parent="."]
+
+[node name="Sword" type="Area2D" parent="Hand"]
+position = Vector2(90, 1)
+scale = Vector2(0.275, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand/Sword"]
+modulate = Color(0.67481464, 0.67481464, 0.6748146, 1)
+texture = ExtResource("2_ogdyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Sword"]
+position = Vector2(2.1017615e-06, 3.0517578e-05)
+shape = SubResource("RectangleShape2D_aot6u")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(-7, -2)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_ogdyq")
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.8
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="body_entered" from="Hand/Sword" to="." method="_on_sword_body_entered"]
+[connection signal="body_exited" from="Hand/Sword" to="." method="_on_sword_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
