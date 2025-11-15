@@ -63,11 +63,12 @@ shape = SubResource("CircleShape2D_pya1m")
 script = ExtResource("5_pya1m")
 
 [node name="Shop" type="GridContainer" parent="ShopKeeper/UI"]
-offset_left = -197.0
-offset_top = 57.0
-offset_right = -69.0
-offset_bottom = 131.0
+offset_left = -198.0
+offset_top = 61.0
+offset_right = -66.395004
+offset_bottom = 135.0
 theme = ExtResource("6_ti35s")
+theme_override_constants/v_separation = 8
 
 [node name="Health" type="Button" parent="ShopKeeper/UI/Shop"]
 layout_mode = 2
@@ -101,6 +102,7 @@ position = Vector2(-388, -515)
 script = ExtResource("7_xeus7")
 
 [node name="Icon" type="Sprite2D" parent="Dummy"]
+position = Vector2(1, 0)
 texture = ExtResource("6_iyph2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dummy"]

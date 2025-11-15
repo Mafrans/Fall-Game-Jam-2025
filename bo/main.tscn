@@ -92,7 +92,8 @@ rotation = -1.5707964
 position = Vector2(3, -268)
 
 [node name="Bossbar" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("9_fyjtl")]
-position = Vector2(0, -607.00006)
+modulate = Color(1, 1, 1, 0.78431374)
+position = Vector2(-1, -627.00006)
 scale = Vector2(0.37, 0.37)
 boss = NodePath("../Boss")
 
