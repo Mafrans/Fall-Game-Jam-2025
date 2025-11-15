@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var ui: Node2D
 @export var player: Player
 @export var typewriter: Label
+
 var UI_DISTANCE = 200
 
 var text_speed := 2
@@ -61,7 +62,8 @@ func player_leave() -> void:
 	ui.visible = false;
 
 func mood_angry() -> void:
-	$Sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)	
+	pass
+	# $Sprite.modulate = Color(1.0, 0.0, 0.0, 1.0)	
 
 func _process(delta: float) -> void:
 	var player_distance := position.distance_to(player.position)
@@ -69,13 +71,12 @@ func _process(delta: float) -> void:
 		player_enter()
 	elif player_distance > UI_DISTANCE + 50:
 		player_leave()
-		
+
+	
+	
 	if is_typing:
 		if typewriter.visible_ratio < 1:
 			typewriter.visible_ratio += text_speed * delta;
-			#visible_text_perc += text_speed * delta
-			#typewriter.visible_characters = int(total_characters * visible_text_perc)
-	#if distance_to()
 
 
 	
