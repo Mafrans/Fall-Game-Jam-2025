@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqqgj3810iqgr"]
+
+[ext_resource type="FontFile" uid="uid://dn3p083tt1e8b" path="res://otto/ModernAntiqua-Regular.ttf" id="2_wq8e4"]
+
+[sub_resource type="GDScript" id="GDScript_roh1f"]
+script/source = "extends HBoxContainer
+
+@export var player: Player
+@export var health: Label = $Health;
+
+func _process(delta: float) -> void:
+	health.text = \"Health: \" + \"<3\".repeat(player.health)
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_uxrbq"]
+font = ExtResource("2_wq8e4")
+font_size = 24
+font_color = Color(0.9180666, 0.94, 0.611, 1)
+
+[node name="HUD" type="HBoxContainer" node_paths=PackedStringArray("health")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_roh1f")
+health = NodePath("Health")
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 2
+text = "Health:"
+label_settings = SubResource("LabelSettings_uxrbq")
