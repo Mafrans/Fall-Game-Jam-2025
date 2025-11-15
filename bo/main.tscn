@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://da8jmv13vqfie"]
+[gd_scene load_steps=10 format=3 uid="uid://da8jmv13vqfie"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_dr3in"]
 [ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="3_aot6u"]
 [ext_resource type="Script" uid="uid://d2o32ba28400j" path="res://bo/health_display.gd" id="4_1fcqa"]
 [ext_resource type="Script" uid="uid://djfvsx0ew7aby" path="res://bo/heal_pots_display.gd" id="4_x81rt"]
 [ext_resource type="PackedScene" uid="uid://c6dv2bgjvkk5x" path="res://bo/boss.tscn" id="5_dr3in"]
-[ext_resource type="Script" uid="uid://rt1iidsgpn7u" path="res://bo/boss_health_display.gd" id="5_xx4b5"]
 [ext_resource type="PackedScene" uid="uid://dhxr0ig54duvt" path="res://bo/stone.tscn" id="8_fyjtl"]
 [ext_resource type="PackedScene" uid="uid://b06t8whwnyoj5" path="res://bo/fire_bullet.tscn" id="8_urq0n"]
-[ext_resource type="PackedScene" uid="uid://c3mve21cjuf8o" path="res://otto/bossbar.tscn" id="9_fyjtl"]
+[ext_resource type="PackedScene" path="res://otto/bossbar.tscn" id="9_fyjtl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1rb1j"]
 font_size = 20
@@ -16,8 +15,8 @@ font_size = 20
 [node name="Main" type="Node2D"]
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(0, -399)
-zoom = Vector2(1.8, 1.8)
+position = Vector2(0, -434)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("1_dr3in")]
 position = Vector2(0, -167)
@@ -25,10 +24,10 @@ scale = Vector2(0.6, 0.6)
 boss = NodePath("../Boss")
 
 [node name="Health" type="Label" parent="." node_paths=PackedStringArray("player")]
-offset_left = -515.0
-offset_top = -683.0
-offset_right = 558.0
-offset_bottom = -649.0
+offset_left = -621.0
+offset_top = -771.0
+offset_right = 452.0
+offset_bottom = -737.0
 text = "Health"
 label_settings = SubResource("LabelSettings_1rb1j")
 script = ExtResource("4_1fcqa")
@@ -36,35 +35,24 @@ player = NodePath("../Player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Stamina" type="Label" parent="." node_paths=PackedStringArray("player")]
-offset_left = -515.0
-offset_top = -657.0
-offset_right = 558.0
-offset_bottom = -626.0
+offset_left = -621.0
+offset_top = -745.0
+offset_right = 452.0
+offset_bottom = -714.0
 text = "Stamina"
 label_settings = SubResource("LabelSettings_1rb1j")
 script = ExtResource("3_aot6u")
 player = NodePath("../Player")
 
 [node name="HealPots" type="Label" parent="." node_paths=PackedStringArray("player")]
-offset_left = -515.0
-offset_top = -627.0
-offset_right = 558.0
-offset_bottom = -593.0
+offset_left = -621.0
+offset_top = -715.0
+offset_right = 452.0
+offset_bottom = -681.0
 text = "Healing Potions"
 label_settings = SubResource("LabelSettings_1rb1j")
 script = ExtResource("4_x81rt")
 player = NodePath("../Player")
-
-[node name="BossHealth" type="Label" parent="." node_paths=PackedStringArray("boss")]
-offset_left = -515.0
-offset_top = -594.0
-offset_right = 558.0
-offset_bottom = -560.0
-text = "Boss Health"
-label_settings = SubResource("LabelSettings_1rb1j")
-script = ExtResource("5_xx4b5")
-boss = NodePath("../Boss")
-metadata/_edit_use_anchors_ = true
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player", "swipe_left_start", "swipe_right_start", "swipe_end") instance=ExtResource("5_dr3in")]
 position = Vector2(0, -749)
@@ -92,7 +80,7 @@ rotation = -1.5707964
 position = Vector2(3, -268)
 
 [node name="Bossbar" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("9_fyjtl")]
-position = Vector2(0, -607.00006)
+position = Vector2(0, -723.00006)
 scale = Vector2(0.37, 0.37)
 boss = NodePath("../Boss")
 
