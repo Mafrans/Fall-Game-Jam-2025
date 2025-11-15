@@ -47,6 +47,8 @@ var heal_pots := 0
 
 var is_dead := false
 
+signal damage_target(power: float)
+
 @onready var hand = $Hand
 @onready var sword = $Hand/Sword
 @onready var sword_sprite = $Hand/Sword/Sprite2D
@@ -160,11 +162,12 @@ func _on_sword_body_entered(body: Node2D) -> void:
 	var direction := (position - body.position).normalized()
 	extra_velocity += attack_forward_thrust * direction * 1.5
 	
-	boss.health -= 1.
+	emit_signal("damage_target", 1.0)
 	
 	Engine.time_scale = 0.4
 	await wait_secs(0.08)
 	Engine.time_scale = 1
+	
 
 func wait_secs(secs: float):
 	await get_tree().create_timer(secs).timeout

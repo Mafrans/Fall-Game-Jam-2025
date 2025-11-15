@@ -89,3 +89,5 @@ rotation = -1.5707964
 
 [node name="SwipeEnd" type="Node2D" parent="Markers"]
 position = Vector2(3, -268)
+
+[connection signal="damage_target" from="Player" to="Boss" method="_on_player_damage_target"]

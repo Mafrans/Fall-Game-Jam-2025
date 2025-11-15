@@ -192,3 +192,7 @@ func wait_frame():
 
 func wait_secs(secs: float):
 	await get_tree().create_timer(secs).timeout
+
+
+func _on_player_damage_target(power: float) -> void:
+	health -= power

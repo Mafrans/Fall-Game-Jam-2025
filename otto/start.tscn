@@ -108,6 +108,7 @@ texture = ExtResource("6_iyph2")
 scale = Vector2(6.285, 6.285)
 shape = SubResource("CircleShape2D_ti35s")
 
+[connection signal="damage_target" from="Player" to="Dummy" method="_on_player_damage_target"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Health" to="ShopKeeper" method="_on_health_pressed"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Agility" to="ShopKeeper" method="_on_agility_pressed"]
