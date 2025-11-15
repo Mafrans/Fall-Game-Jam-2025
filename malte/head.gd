@@ -1,8 +1,14 @@
 class_name Head
 extends Node2D
 
+@export var normal_sprite: Texture2D
+@export var left_sprite: Texture2D
+@export var right_sprite: Texture2D
+
 var preferred_position = Vector2()
 var preferred_rotation = 0
+
+@onready var sprite := $Sprite2D
 
 func _ready() -> void:
 	preferred_position = global_position
@@ -17,3 +23,10 @@ func look_at_player(player: Player, body: Body) -> void:
 func _process(delta: float) -> void:
 	global_position = lerp(global_position, preferred_position, delta*3)
 	global_rotation = lerp(global_rotation, preferred_rotation, delta*3)
+	
+	if global_rotation < -PI / 6.:
+		sprite.texture = right_sprite
+	elif global_rotation > PI / 6.:
+		sprite.texture = left_sprite
+	else:
+		sprite.texture = normal_sprite
