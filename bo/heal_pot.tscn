@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dixwvct3uf3kf"]
+[gd_scene load_steps=2 format=3 uid="uid://bv2ljbcj0um21"]
 
-[ext_resource type="Texture2D" uid="uid://7b6mx2llg4xa" path="res://icon.svg" id="1_iqk5u"]
+[ext_resource type="Texture2D" uid="uid://dlgtls1dh0h7u" path="res://malte/heart/heart_1.png" id="1_iqk5u"]
 
 [node name="TextureRect" type="TextureRect"]
-custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("1_iqk5u")
-expand_mode = 1

@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c6dv2bgjvkk5x" path="res://bo/boss.tscn" id="5_dr3in"]
 [ext_resource type="PackedScene" uid="uid://dhxr0ig54duvt" path="res://bo/stone.tscn" id="8_fyjtl"]
 [ext_resource type="PackedScene" uid="uid://b06t8whwnyoj5" path="res://bo/fire_bullet.tscn" id="8_urq0n"]
-[ext_resource type="PackedScene" path="res://otto/bossbar.tscn" id="9_fyjtl"]
-[ext_resource type="PackedScene" uid="uid://cybo5dsjay7vg" path="res://bo/heart.tscn" id="9_v7fas"]
-[ext_resource type="Theme" uid="uid://bfeghqd2s21j8" path="res://otto/start.tres" id="10_133m2"]
-[ext_resource type="PackedScene" uid="uid://dixwvct3uf3kf" path="res://bo/heal_pot.tscn" id="10_v7fas"]
-[ext_resource type="Script" uid="uid://5nfgbcurht0c" path="res://bo/gold_display.gd" id="12_158ms"]
+[ext_resource type="PackedScene" uid="uid://c3mve21cjuf8o" path="res://otto/bossbar.tscn" id="9_fyjtl"]
+[ext_resource type="PackedScene" uid="uid://ckaa52aa1p7sg" path="res://bo/heart.tscn" id="9_v7fas"]
+[ext_resource type="Theme" uid="uid://8ywflfwlqq8h" path="res://otto/start.tres" id="10_133m2"]
+[ext_resource type="PackedScene" uid="uid://bv2ljbcj0um21" path="res://bo/heal_pot.tscn" id="10_v7fas"]
+[ext_resource type="Script" path="res://bo/gold_display.gd" id="12_158ms"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_133m2"]
 
@@ -72,7 +72,7 @@ player = NodePath("../../Player")
 [node name="Hearts" type="HBoxContainer" parent="HUD" node_paths=PackedStringArray("player")]
 layout_mode = 2
 script = ExtResource("4_1fcqa")
-heart = ExtResource("9_v7fas")
+heart_scenes = Array[PackedScene]([ExtResource("9_v7fas")])
 player = NodePath("../../Player")
 
 [node name="Stamina" type="ProgressBar" parent="HUD" node_paths=PackedStringArray("player")]
