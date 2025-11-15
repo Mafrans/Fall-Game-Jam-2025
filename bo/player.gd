@@ -27,6 +27,7 @@ var max_health: int
 @export var attack_forward_thrust: float
 @export var attack_forward_boost: float
 
+
 var last_roll := 0
 var last_input := Vector2.ZERO
 var is_rolling := false
@@ -51,12 +52,15 @@ signal damage_target(power: float)
 
 @onready var hand = $Hand
 @onready var sword = $Hand/Sword
-@onready var sword_sprite = $Hand/Sword/Sprite2D
 @onready var sword_collision = $Hand/Sword/CollisionShape2D
+@onready var collider = $CollisionShape2D
+
+@onready var sprite: AnimatedSprite2D = $Sprite2D
+
+var rng = RandomNumberGenerator.new()
 
 func set_sword_enabled(enabled: bool):
 	sword.set_process(enabled)
-	sword_sprite.visible = enabled
 	sword_collision.disabled = not enabled
 
 func _ready() -> void:
@@ -74,6 +78,7 @@ func _physics_process(delta: float) -> void:
 	update_attack()
 	update_movement(delta)
 	update_heal_pot(delta)
+
 	
 	velocity += extra_velocity
 	extra_velocity *= 0.8
@@ -86,9 +91,13 @@ func update_movement(delta: float):
 	if roll_t > 1 and is_rolling:
 		# stopped rolling
 		is_invincible = false
+		collider.disabled = false
 	is_rolling = roll_t <= 1
 	
 	var input := Input.get_vector("left", "right", "up", "down")
+	
+	if not is_attacking and not is_using_heal_pot:
+		sprite.animation = "idle" if input.length() == 0 else "run"
 	
 	if is_rolling:
 		velocity = (roll_speed - roll_dropoff * roll_t) * last_input
@@ -100,9 +109,11 @@ func update_movement(delta: float):
 			if stamina >= roll_stamina_drain:
 				last_roll = time
 				stamina -= roll_stamina_drain
+				collider.disabled = true
 	
 	if input.length() > 0:
 		last_input = input
+		sprite.flip_h = input.x < 0
 	if not is_attacking:
 		hand.rotation = last_input.angle()
 	
@@ -135,8 +146,11 @@ func update_attack():
 		not is_rolling and
 		(time - last_attack) > attack_cooldown * 1000
 	):
+		is_attacking = true
 		last_attack = time
 		extra_velocity += attack_forward_thrust * last_input
+		sprite.animation = "attack_1" if rng.randf() > 0.5 else "attack_2"
+		await wait_secs(0.2)
 		move_and_collide(attack_forward_boost * last_input)
 		set_sword_enabled(true)
 	else:
@@ -154,6 +168,7 @@ func update_heal_pot(delta: float) -> void:
 	elif Input.is_action_pressed("heal") and heal_pots >= 1:
 		is_using_heal_pot = true
 		started_heal_pot_at = time
+		sprite.animation = "heal"
 
 func _on_sword_body_entered(body: Node2D) -> void:
 	if body == self:

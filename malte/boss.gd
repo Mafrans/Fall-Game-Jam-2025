@@ -58,7 +58,7 @@ func hands_idle() -> void:
 	left_hand.hover(delta)
 	right_hand.hover(delta)
 
-var attacks := [fire_breath]
+var attacks := [fire_breath, swipe, hover, stone_rain]
 
 func state_machine():
 	await wait_secs(3)
@@ -129,7 +129,7 @@ func fire_breath():
 		head.preferred_position = head_start + head_dir * 50.0
 		
 		var time = Time.get_ticks_msec()
-		if time - last_bullet_fire > 0.03 * 1000:
+		if time - last_bullet_fire > 0.06 * 1000:
 			var bullet := fire_bullet.instantiate()
 			get_parent().add_child(bullet)
 			(bullet as Node2D).global_position = mouth.global_position
@@ -160,7 +160,7 @@ func stone_rain() -> void:
 	
 	animate_body = true
 	
-	for i in range(5):
+	for i in range(6):
 		var target_pos := Vector2(rng.randf_range(
 			stone_area_center.x - stone_area_size.x,
 			stone_area_center.x + stone_area_size.x
@@ -178,7 +178,7 @@ func counter():
 	animate_hands = false
 	animate_body = false
 	
-	var hand = right_hand if player.global_position.x > global_position.x else left_hand
+	var hand = right_hand if player.global_position.x < global_position.x else left_hand
 	
 	hand.preferred_position = player.global_position + Vector2(0, 50)
 	await wait_secs(0.4)
