@@ -58,7 +58,7 @@ func hands_idle() -> void:
 	left_hand.hover(delta)
 	right_hand.hover(delta)
 
-var attacks := [hover]
+var attacks := [hover, fire_breath, stone_rain, swipe]
 
 func state_machine():
 	await wait_secs(3)
