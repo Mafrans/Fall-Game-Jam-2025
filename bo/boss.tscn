@@ -11,17 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://dsu1xk054jv0c" path="res://malte/head.png" id="9_udaof"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwpn6"]
-radius = 45.714302
-height = 388.57153
+radius = 132.85718
+height = 305.71436
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_148pb"]
-radius = 80.0
+radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3tm6"]
-radius = 50.0
+radius = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rwpn6"]
-radius = 80.0
+radius = 100.0
 
 [node name="Boss" type="Node2D"]
 scale = Vector2(0.7, 0.7)
@@ -33,47 +33,58 @@ position = Vector2(5.449567e-06, 91.42852)
 script = ExtResource("2_148pb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
-position = Vector2(0, 82.85719)
+position = Vector2(9.999995, 212.8572)
 rotation = 1.5707964
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("CapsuleShape2D_rwpn6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(0, 158.57149)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_q3tm6")
 
 [node name="Left Hand" type="Area2D" parent="Body"]
-position = Vector2(286.8571, 57.142868)
+position = Vector2(298.57147, 142.8572)
+rotation = 0.12217305
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 script = ExtResource("4_10b6s")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Left Hand"]
+position = Vector2(5.055751, 114.76888)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_jrs63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Left Hand"]
+position = Vector2(12.08423, 121.86287)
 shape = SubResource("CircleShape2D_148pb")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Body/Left Hand"]
+position = Vector2(10.369884, 36.148533)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Left Hand/CharacterBody2D"]
+position = Vector2(1.7143469, 85.71434)
 shape = SubResource("CircleShape2D_q3tm6")
 
 [node name="Right Hand" type="Area2D" parent="Body"]
-position = Vector2(-287.14285, 57.14286)
+position = Vector2(-284.2857, 180.00006)
 scale = Vector2(0.9999998, 0.9999998)
 collision_layer = 2
 script = ExtResource("6_u17vx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Right Hand"]
+position = Vector2(0, 99.43374)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_cbj66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Right Hand"]
+position = Vector2(-2.1798274e-05, 111.42859)
 shape = SubResource("CircleShape2D_rwpn6")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Body/Right Hand"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Right Hand/CharacterBody2D"]
+position = Vector2(-2.1798274e-05, 111.42859)
 shape = SubResource("CircleShape2D_q3tm6")
 
 [node name="Head" type="Node2D" parent="Body"]
@@ -83,7 +94,8 @@ script = ExtResource("8_i7cgb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Head"]
 position = Vector2(3, 1)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("9_udaof")
 
 [node name="Mouth" type="Node2D" parent="Body/Head"]
-position = Vector2(0, 142.85722)
+position = Vector2(18.571426, 144.2858)

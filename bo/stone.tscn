@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhxr0ig54duvt"]
+
+[ext_resource type="Texture2D" uid="uid://7b6mx2llg4xa" path="res://icon.svg" id="1_6v3qb"]
+[ext_resource type="Script" uid="uid://tp7xn6faxo71" path="res://bo/stone.gd" id="1_lrrgl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_urq0n"]
+radius = 50.0
+
+[node name="Stone" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_lrrgl")
+acceleration = 400.0
+start_speed = 100.0
+lifetime = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.5716493, 0.5716493, 0.57164925, 1)
+scale = Vector2(0.785, 0.785)
+texture = ExtResource("1_6v3qb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_urq0n")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_urq0n")

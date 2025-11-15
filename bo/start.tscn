@@ -16,18 +16,6 @@ zoom = Vector2(1.8, 1.8)
 [node name="Player" parent="." instance=ExtResource("1_hhuon")]
 position = Vector2(0, -167)
 scale = Vector2(0.6, 0.6)
-speed = 150.0
-stamina_regen = 25.0
-roll_speed = 600.0
-roll_duration = 0.3
-roll_dropoff = 200.0
-roll_stamina_penalty = 0.9
-max_health = 3
-max_heal_pots = 2
-heal_pot_duration = 1.5
-heal_pot_heal = 1
-attack_forward_thrust = 50.0
-attack_forward_boost = 1.0
 
 [node name="Door" type="Area2D" parent="."]
 modulate = Color(0.5662982, 0.5662982, 0.5662982, 1)

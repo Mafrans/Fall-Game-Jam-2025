@@ -174,7 +174,7 @@ func _on_sword_body_exited(body: Node2D) -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if is_invincible:
+	if is_invincible or is_dead:
 		return
 	
 	is_invincible = true
