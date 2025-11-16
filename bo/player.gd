@@ -71,7 +71,7 @@ func _ready() -> void:
 	health = max_health
 	
 	speed = 150 + Global.speed * 15
-	roll_speed = 700 + Global.speed * 70
+	roll_speed = 700
 	max_heal_pots = Global.potion
 	stamina_regen = 25 + 4 * Global.agility
 	

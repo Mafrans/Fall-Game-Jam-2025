@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bc2oars1gbw84"]
+[gd_scene load_steps=44 format=3 uid="uid://bc2oars1gbw84"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_hhuon"]
 [ext_resource type="Texture2D" uid="uid://bqtqpnilwioku" path="res://malte/lobby.png" id="1_l7owo"]
@@ -32,9 +32,9 @@
 [ext_resource type="AudioStream" uid="uid://06yacqmagqqv" path="res://bo/sounds/Shopkeeper 9.ogg" id="19_1h0g5"]
 [ext_resource type="AudioStream" uid="uid://b3kxe25gcfmna" path="res://bo/sounds/Hurt 2.ogg" id="20_cxiyl"]
 [ext_resource type="AudioStream" uid="uid://b2cmxq4jjc8nd" path="res://bo/music/Lobby Theme final.mp3" id="29_cxiyl"]
-[ext_resource type="Theme" uid="uid://xw75b73m3iap" path="res://otto/menu.tres" id="33_80ttp"]
-[ext_resource type="PackedScene" uid="uid://chfo7c5uqbput" path="res://malte/tree.tscn" id="32_ox625"]
+[ext_resource type="PackedScene" path="res://malte/tree.tscn" id="32_ox625"]
 [ext_resource type="Texture2D" uid="uid://386rnj7701n1" path="res://malte/tree/tree_1.png" id="33_5iunt"]
+[ext_resource type="Theme" uid="uid://xw75b73m3iap" path="res://otto/menu.tres" id="33_80ttp"]
 [ext_resource type="Texture2D" uid="uid://eib5q7m0qj5n" path="res://malte/tree/tree_2.png" id="34_tko8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwq13"]
@@ -305,7 +305,6 @@ theme = ExtResource("33_80ttp")
 layout_mode = 2
 text = "Start Game"
 
-[connection signal="damage_target" from="Player" to="Dummy" method="_on_player_damage_target"]
 [node name="Trees" type="Node2D" parent="."]
 position = Vector2(-528, -699)
 
@@ -427,6 +426,7 @@ shape = SubResource("RectangleShape2D_80ttp")
 position = Vector2(301.53003, 6.1932373)
 shape = SubResource("RectangleShape2D_80ttp")
 
+[connection signal="damage_target" from="Player" to="Dummy" method="_on_player_damage_target"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Health" to="ShopKeeper" method="_on_health_pressed"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Potion" to="ShopKeeper" method="_on_potion_pressed"]
