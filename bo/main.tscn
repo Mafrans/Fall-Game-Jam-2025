@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://da8jmv13vqfie"]
+[gd_scene load_steps=25 format=3 uid="uid://da8jmv13vqfie"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_dr3in"]
 [ext_resource type="Script" uid="uid://6arie7pmgkn8" path="res://bo/camera.gd" id="1_wwsl2"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://f4frx0bql6fa" path="res://malte/arena/arena_2.png" id="17_dbwj6"]
 [ext_resource type="Texture2D" uid="uid://bnjlysjwb1s4" path="res://malte/arena/arena_3.png" id="18_bpoun"]
 [ext_resource type="Texture2D" uid="uid://dmo76i4snr33n" path="res://malte/arena/arena_4.png" id="19_1jqvn"]
+[ext_resource type="Texture2D" uid="uid://yu7hvol280rn" path="res://malte/arena/arena_area_1.png" id="20_bpoun"]
+[ext_resource type="Texture2D" uid="uid://dluxc0417y0bh" path="res://malte/arena/arena_area_2.png" id="21_1jqvn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_133m2"]
 
@@ -36,6 +38,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("19_1jqvn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dityd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_bpoun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1jqvn")
 }],
 "loop": true,
 "name": &"default",
@@ -65,7 +81,7 @@ swipe_right_start = NodePath("../Markers/SwipeRightStart")
 swipe_end = NodePath("../Markers/SwipeEnd")
 fire_bullet = ExtResource("8_urq0n")
 stone_area_center = Vector2(0, -250)
-stone_area_size = Vector2(550, 130)
+stone_area_size = Vector2(400, 130)
 stone_scene = ExtResource("8_fyjtl")
 counter_threshold = 400.0
 chill_chance = 0.2
@@ -129,7 +145,7 @@ script = ExtResource("12_158ms")
 [node name="Premitier" type="CharacterBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Premitier"]
-polygon = PackedVector2Array(488, -77, -497, -75, -491, -553, 470, -542, 482, -77, 2157, -81, 2137, -2045, -2216, -2079, -2296, 1393, 2204, 1406, 2151, 14, 2157, -81)
+polygon = PackedVector2Array(488, -16, -497, -4, -491, -553, 470, -542, 482, -21, 2157, -81, 2137, -2045, -2216, -2079, -2296, 1393, 2204, 1406, 2151, 14, 2157, -81)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_siobo")
@@ -139,15 +155,33 @@ bus = &"Music"
 parameters/looping = true
 
 [node name="Background" type="Node2D" parent="."]
-z_index = -3
 position = Vector2(0, 13)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background"]
+[node name="Background" type="AnimatedSprite2D" parent="Background"]
+z_index = -4
 position = Vector2(0, -363.99997)
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_cpsh4")
 autoplay = "default"
-frame_progress = 0.6628209
+frame = 3
+frame_progress = 0.4298281
+
+[node name="Overlay" type="AnimatedSprite2D" parent="Background"]
+z_index = -2
+position = Vector2(-2.1002197, -362.67752)
+scale = Vector2(0.44904953, 0.44904953)
+sprite_frames = SubResource("SpriteFrames_dityd")
+autoplay = "default"
+
+[node name="Background2" type="AnimatedSprite2D" parent="Background"]
+z_index = -4
+position = Vector2(-3.512, -1093)
+rotation = 3.1415927
+scale = Vector2(0.4442819, 0.44428185)
+sprite_frames = SubResource("SpriteFrames_cpsh4")
+autoplay = "default"
+frame = 3
+frame_progress = 0.4298281
 
 [connection signal="damage_target" from="Player" to="Boss" method="_on_player_damage_target"]
 [connection signal="damage_target" from="Player" to="Bossbar" method="_on_player_damage_target"]

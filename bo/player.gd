@@ -117,6 +117,8 @@ func update_movement(delta: float):
 				stamina -= roll_stamina_drain
 				collider.disabled = true
 				$RollSound.play_random()
+				if %Camera:
+					%Camera.shake(0.8, 5)
 	
 	if input.length() > 0:
 		last_input = input
@@ -198,8 +200,8 @@ func _on_sword_body_entered(body: Node2D) -> void:
 	
 	$HitSound.play_random()
 	
-	Engine.time_scale = 0.4
-	await wait_secs(0.08)
+	Engine.time_scale = 0.5
+	await wait_secs(0.1)
 	Engine.time_scale = 1
 	
 
