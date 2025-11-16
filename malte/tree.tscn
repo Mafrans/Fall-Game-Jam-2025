@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://chfo7c5uqbput"]
+
+[ext_resource type="Script" uid="uid://7m424leypngn" path="res://malte/tree.gd" id="1_n2rdb"]
+[ext_resource type="Texture2D" uid="uid://386rnj7701n1" path="res://malte/tree/tree_1.png" id="2_sq8li"]
+
+[node name="Tree" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_n2rdb")
+
+[node name="Tree Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -53)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_sq8li")
