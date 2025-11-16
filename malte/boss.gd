@@ -236,6 +236,8 @@ func fire_breath():
 	animate_body = false
 	var inverse = rng.randf() < 0.5
 	
+	$FireSound.play()
+	
 	var start := Time.get_ticks_msec()
 	var last_bullet_fire := start + 0.3 * 1000
 	var head_start = head.global_position

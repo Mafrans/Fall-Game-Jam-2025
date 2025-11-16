@@ -87,7 +87,7 @@ counter_threshold = 400.0
 chill_chance = 0.2
 min_cough_interval = 5.0
 gold_scene = ExtResource("6_4pj4a")
-cough_spread = 2.5
+cough_spread = 1.5
 cough_amount = 4
 stage_cough_amount = 10
 
@@ -149,7 +149,7 @@ polygon = PackedVector2Array(488, -16, -497, -4, -491, -553, 470, -542, 482, -21
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_siobo")
-volume_db = -19.0
+volume_db = -17.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
