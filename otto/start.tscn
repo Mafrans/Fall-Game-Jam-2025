@@ -60,6 +60,7 @@ script = ExtResource("1_ox625")
 metadata/_edit_vertical_guides_ = [-717.0]
 
 [node name="Lobby" type="Sprite2D" parent="."]
+z_index = -5
 position = Vector2(-0.00014150143, -399.4375)
 scale = Vector2(0.36728305, 0.36728305)
 texture = ExtResource("1_l7owo")
@@ -411,7 +412,7 @@ sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
 position = Vector2(-797.53, -404.69324)
 
 [node name="Top Edge" type="CollisionShape2D" parent="World Edges"]
-position = Vector2(828.53, -373.30676)
+position = Vector2(827.53, -363.30676)
 shape = SubResource("RectangleShape2D_5iunt")
 
 [node name="Bottom Edge" type="CollisionShape2D" parent="World Edges"]
