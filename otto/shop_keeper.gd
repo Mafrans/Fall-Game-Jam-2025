@@ -27,6 +27,7 @@ func _ready() -> void:
 	typewriter.autowrap_mode = TextServer.AUTOWRAP_WORD
 
 func set_dialog(message: String) -> void:
+	$InteractAudio.play_random()
 	typewriter.text = message
 	# total_characters = typewriter.text.length()
 	typewriter.visible_characters = 0
