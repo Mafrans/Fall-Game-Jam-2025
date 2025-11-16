@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bc2oars1gbw84"]
+[gd_scene load_steps=37 format=3 uid="uid://bc2oars1gbw84"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_hhuon"]
 [ext_resource type="Texture2D" uid="uid://bqtqpnilwioku" path="res://malte/lobby.png" id="1_l7owo"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bertdsmf600i2" path="res://otto/dummy.gd" id="7_xeus7"]
 [ext_resource type="Script" uid="uid://b0m7yu5ni8coj" path="res://otto/shop_guy.gd" id="8_1s5p4"]
 [ext_resource type="Texture2D" uid="uid://bb2o2o0ufl0i2" path="res://malte/dummy.png" id="9_5k8ff"]
+[ext_resource type="Texture2D" uid="uid://cxqyxbjusseko" path="res://bo/Shadow.png" id="9_vxyue"]
 [ext_resource type="Script" uid="uid://c6sog1d7jfs8j" path="res://bo/random_sound.gd" id="10_t2pxg"]
 [ext_resource type="AudioStream" uid="uid://datrc5u820sow" path="res://bo/sounds/Shopkeeper 1.ogg" id="11_cxiyl"]
 [ext_resource type="Script" uid="uid://djfvsx0ew7aby" path="res://bo/heal_pots_display.gd" id="12_6ud2m"]
@@ -60,13 +61,19 @@ scale = Vector2(0.6, 0.6)
 roll_duration = 0.3
 roll_dropoff = 200.0
 
+[node name="CaveArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CaveArea"]
+polygon = PackedVector2Array(-61, -610, -158, -602, -204, -636, -243, -634, -261, -653, -298, -670, -316, -1215, 309, -1215, 278, -700, 278, -683, 250, -675, 228, -654, 206, -654, 186, -647, 62, -611, 64, -837, -76, -830)
+
 [node name="Door" type="Area2D" parent="."]
 modulate = Color(0.5662982, 0.5662982, 0.5662982, 1)
-position = Vector2(0, -707)
-scale = Vector2(2.74, 0.265)
+position = Vector2(0, -744.015)
+scale = Vector2(0.941, 1.56)
 script = ExtResource("2_54lrv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
+visible = false
 texture = ExtResource("6_iyph2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
@@ -141,6 +148,11 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_1s5p4")
+
+[node name="Shadow" type="Sprite2D" parent="ShopKeeper"]
+position = Vector2(-2, -1)
+scale = Vector2(0.37109375, 0.37109375)
+texture = ExtResource("9_vxyue")
 
 [node name="ShopGuy" type="Node2D" parent="ShopKeeper"]
 position = Vector2(-3, 1)
