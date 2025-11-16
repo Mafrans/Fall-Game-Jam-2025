@@ -15,7 +15,7 @@ func _ready() -> void:
 	default_color = rect.color
 
 func _process(_delta: float) -> void:
-	bar.scale.x = min(0, (boss.health / boss.max_health)*bar_full_width)
+	bar.scale.x = max(0, (boss.health / boss.max_health)*bar_full_width)
 
 
 func _on_player_damage_target(power: float) -> void:
