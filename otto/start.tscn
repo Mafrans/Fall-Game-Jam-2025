@@ -10,7 +10,7 @@
 [ext_resource type="Theme" uid="uid://8ywflfwlqq8h" path="res://otto/start.tres" id="6_ti35s"]
 [ext_resource type="FontFile" uid="uid://dn3p083tt1e8b" path="res://otto/ModernAntiqua-Regular.ttf" id="6_xeus7"]
 [ext_resource type="Script" uid="uid://bertdsmf600i2" path="res://otto/dummy.gd" id="7_xeus7"]
-[ext_resource type="Script" path="res://otto/shop_guy.gd" id="8_1s5p4"]
+[ext_resource type="Script" uid="uid://b0m7yu5ni8coj" path="res://otto/shop_guy.gd" id="8_1s5p4"]
 [ext_resource type="Texture2D" uid="uid://bb2o2o0ufl0i2" path="res://malte/dummy.png" id="9_5k8ff"]
 [ext_resource type="Texture2D" uid="uid://cxqyxbjusseko" path="res://bo/Shadow.png" id="9_vxyue"]
 [ext_resource type="Script" uid="uid://c6sog1d7jfs8j" path="res://bo/random_sound.gd" id="10_t2pxg"]
@@ -61,15 +61,20 @@ scale = Vector2(0.6, 0.6)
 roll_duration = 0.3
 roll_dropoff = 200.0
 
-[node name="TentArea" type="Area2D" parent="."]
+[node name="TentBody" type="CharacterBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TentArea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TentBody"]
 polygon = PackedVector2Array(362, -484, 295, -506, 225, -479, 240, -585, 300, -678, 363, -597)
 
-[node name="CaveArea" type="Area2D" parent="."]
+[node name="CaveBody" type="CharacterBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CaveArea"]
-polygon = PackedVector2Array(-61, -610, -158, -602, -204, -636, -243, -634, -261, -653, -298, -670, -316, -1215, 309, -1215, 278, -700, 278, -683, 250, -675, 228, -654, 206, -654, 186, -647, 62, -611, 64, -837, -76, -830)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CaveBody"]
+polygon = PackedVector2Array(-61, -610, -158, -602, -204, -636, -243, -634, -261, -653, -298, -670, -316, -1215, 309, -1215, 278, -700, 278, -683, 250, -675, 228, -654, 206, -654, 186, -647, 62, -611, 61, -845, -61, -845)
+
+[node name="FenceBody" type="CharacterBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FenceBody"]
+polygon = PackedVector2Array(-321, -386, -332, -387, -327, -533, -172, -545, -172, -533, -317, -523)
 
 [node name="Door" type="Area2D" parent="."]
 modulate = Color(0.5662982, 0.5662982, 0.5662982, 1)
