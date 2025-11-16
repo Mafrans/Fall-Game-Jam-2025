@@ -182,6 +182,8 @@ func update_heal_pot(delta: float) -> void:
 		is_using_heal_pot = true
 		started_heal_pot_at = time
 		sprite.animation = "heal"
+		$Slurp.play()
+		
 
 
 func _on_sword_body_entered(body: Node2D) -> void:
