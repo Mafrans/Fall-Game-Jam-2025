@@ -6,6 +6,7 @@ var main_menu: Control
 var start_btn: Button
 
 func _ready():
+	is_main_menu = !Global.has_died
 	main_menu = $MainMenu
 	player = $Player
 	start_btn = $MainMenu/VBoxContainer/Start

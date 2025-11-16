@@ -6,3 +6,4 @@ var agility := 1
 var speed := 0
 var potion := 0
 var damage := 1
+var has_died := false

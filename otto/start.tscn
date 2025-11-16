@@ -32,10 +32,18 @@
 [ext_resource type="AudioStream" uid="uid://06yacqmagqqv" path="res://bo/sounds/Shopkeeper 9.ogg" id="19_1h0g5"]
 [ext_resource type="AudioStream" uid="uid://b3kxe25gcfmna" path="res://bo/sounds/Hurt 2.ogg" id="20_cxiyl"]
 [ext_resource type="AudioStream" uid="uid://b2cmxq4jjc8nd" path="res://bo/music/Lobby Theme final.mp3" id="29_cxiyl"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" path="res://malte/tree.tscn" id="32_ox625"]
 [ext_resource type="Texture2D" uid="uid://386rnj7701n1" path="res://malte/tree/tree_1.png" id="33_5iunt"]
 [ext_resource type="Theme" uid="uid://xw75b73m3iap" path="res://otto/menu.tres" id="33_80ttp"]
+=======
+[ext_resource type="PackedScene" uid="uid://chfo7c5uqbput" path="res://malte/tree.tscn" id="32_ox625"]
+[ext_resource type="Texture2D" uid="uid://386rnj7701n1" path="res://malte/tree/tree_1.png" id="33_5iunt"]
+[ext_resource type="Theme" uid="uid://xw75b73m3iap" path="res://otto/menu.tres" id="33_80ttp"]
+[ext_resource type="VideoStream" uid="uid://l53xy1desc8m" path="res://malte/mainmenu.ogv" id="34_1h0g5"]
+>>>>>>> 83b48f7 (Add main menu)
 [ext_resource type="Texture2D" uid="uid://eib5q7m0qj5n" path="res://malte/tree/tree_2.png" id="34_tko8m"]
+[ext_resource type="Texture2D" uid="uid://degn38erl0vcc" path="res://malte/title.png" id="35_25dlh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwq13"]
 size = Vector2(128, 36.42627)
@@ -279,25 +287,38 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu"]
+z_index = 6
 layout_mode = 0
 offset_left = -536.0
 offset_top = -310.0
 offset_right = -496.0
 offset_bottom = -270.0
 scale = Vector2(26.80239, 15.569953)
-color = Color(0.15686275, 0.15686275, 0.15686275, 0.50980395)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MainMenu"]
+z_index = 7
+layout_mode = 0
+offset_left = -235.0
+offset_top = -160.0
+offset_right = 2125.0
+offset_bottom = 1480.0
+scale = Vector2(0.2, 0.2)
+stream = ExtResource("34_1h0g5")
+autoplay = true
+loop = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+z_index = 8
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -20.0
-offset_right = 48.0
-offset_bottom = 20.0
+offset_left = -90.0
+offset_top = 174.0
+offset_right = 91.0
+offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("33_80ttp")
@@ -306,6 +327,15 @@ theme = ExtResource("33_80ttp")
 layout_mode = 2
 text = "Start Game"
 
+<<<<<<< HEAD
+=======
+[node name="Title" type="Sprite2D" parent="MainMenu"]
+z_index = 8
+position = Vector2(-1, -213)
+scale = Vector2(0.19999999, 0.19999999)
+texture = ExtResource("35_25dlh")
+
+>>>>>>> 83b48f7 (Add main menu)
 [node name="Trees" type="Node2D" parent="."]
 position = Vector2(-528, -699)
 
