@@ -35,6 +35,8 @@ scale = Vector2(0.7, 0.7)
 script = ExtResource("1_rwpn6")
 max_health = 100.0
 max_concurrent_attacks = 1
+max_cough_interval = 10.0
+min_cough_interval = 4.0
 
 [node name="Body" type="CharacterBody2D" parent="."]
 position = Vector2(5.449567e-06, 91.42852)
@@ -135,3 +137,7 @@ texture = ExtResource("9_udaof")
 
 [node name="Mouth" type="Node2D" parent="Body/Head"]
 position = Vector2(18.571426, 144.2858)
+
+[node name="CoughTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CoughTimer" to="." method="_on_cough_timer_timeout"]

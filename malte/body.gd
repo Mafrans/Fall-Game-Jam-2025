@@ -29,9 +29,9 @@ func _process(delta: float) -> void:
 	global_position = lerp(global_position, preferred_position, delta * 3)
 	global_rotation = lerp(global_rotation, preferred_rotation, delta * 3)
 	
-	if global_rotation > PI / 22.:
+	if global_rotation > PI / 25.:
 		sprite.texture = right_sprite
-	elif global_rotation < -PI / 22.:
+	elif global_rotation < -PI / 25.:
 		sprite.texture = left_sprite
 	else:
 		sprite.texture = normal_sprite

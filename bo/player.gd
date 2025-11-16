@@ -27,7 +27,6 @@ var max_health: int
 @export var attack_forward_thrust: float
 @export var attack_forward_boost: float
 
-
 var last_roll := 0
 var last_input := Vector2.ZERO
 var is_rolling := false
@@ -209,7 +208,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		boss.set_process(false)
 		is_dead = true
 		($RespawnTimer as Timer).start()
-		
+	
 	Engine.time_scale = 0.5
 	await wait_secs(0.2)
 	Engine.time_scale = 1
@@ -221,3 +220,8 @@ func _on_hit_timer_timeout() -> void:
 
 func _on_respawn_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://otto/start.tscn")
+
+
+func _on_gold_pickup_area_entered(area: Area2D) -> void:
+	Global.gold += 1
+	area.queue_free()

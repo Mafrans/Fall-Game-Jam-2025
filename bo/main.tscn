@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://da8jmv13vqfie"]
+[gd_scene load_steps=16 format=3 uid="uid://da8jmv13vqfie"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_dr3in"]
 [ext_resource type="Script" uid="uid://6arie7pmgkn8" path="res://bo/camera.gd" id="1_wwsl2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d2o32ba28400j" path="res://bo/health_display.gd" id="4_1fcqa"]
 [ext_resource type="Script" uid="uid://djfvsx0ew7aby" path="res://bo/heal_pots_display.gd" id="4_x81rt"]
 [ext_resource type="PackedScene" uid="uid://c6dv2bgjvkk5x" path="res://bo/boss.tscn" id="5_dr3in"]
+[ext_resource type="PackedScene" uid="uid://c1hjdw32okhdy" path="res://bo/gold_bullet.tscn" id="6_4pj4a"]
 [ext_resource type="PackedScene" uid="uid://dhxr0ig54duvt" path="res://bo/stone.tscn" id="8_fyjtl"]
 [ext_resource type="PackedScene" uid="uid://b06t8whwnyoj5" path="res://bo/fire_bullet.tscn" id="8_urq0n"]
 [ext_resource type="PackedScene" uid="uid://dedy1hi7bvayq" path="res://otto/bossbar.tscn" id="9_fyjtl"]
@@ -40,8 +41,11 @@ stone_area_center = Vector2(0, -250)
 stone_area_size = Vector2(500, 125)
 stone_scene = ExtResource("8_fyjtl")
 counter_threshold = 400.0
-max_concurrent_attacks = 2
 chill_chance = 0.2
+gold_scene = ExtResource("6_4pj4a")
+cough_spread = 1.8
+cough_amount = 5
+stage_cough_amount = 10
 
 [node name="Markers" type="Node2D" parent="."]
 

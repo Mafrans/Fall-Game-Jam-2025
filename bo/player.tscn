@@ -158,8 +158,17 @@ shape = SubResource("CapsuleShape2D_wfv7e")
 [node name="HitTimer" type="Timer" parent="."]
 wait_time = 0.8
 
+[node name="GoldPickup" type="Area2D" parent="."]
+position = Vector2(-14, -4)
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoldPickup"]
+position = Vector2(2, -4)
+shape = SubResource("CapsuleShape2D_wfv7e")
+
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="body_entered" from="Hand/Sword" to="." method="_on_sword_body_entered"]
 [connection signal="body_exited" from="Hand/Sword" to="." method="_on_sword_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="area_entered" from="GoldPickup" to="." method="_on_gold_pickup_area_entered"]
