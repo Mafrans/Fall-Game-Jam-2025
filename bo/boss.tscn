@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c6dv2bgjvkk5x"]
+[gd_scene load_steps=36 format=3 uid="uid://c6dv2bgjvkk5x"]
 
 [ext_resource type="Script" uid="uid://bwohgrtv5tvi" path="res://malte/boss.gd" id="1_rwpn6"]
 [ext_resource type="Script" uid="uid://de7dvgi7bja6w" path="res://malte/body.gd" id="2_148pb"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://bn3wegm8ipero" path="res://bo/sounds/Swoosh 3.ogg" id="22_rjj6g"]
 [ext_resource type="AudioStream" uid="uid://bh6tmgi40gba5" path="res://bo/sounds/Swoosh 4.ogg" id="23_25vf1"]
 [ext_resource type="AudioStream" uid="uid://c7efcihrqeumh" path="res://bo/sounds/Fwomp 1.ogg" id="24_bd7f5"]
+[ext_resource type="AudioStream" uid="uid://xrsscvv7f7vu" path="res://bo/sounds/Fire.mp3" id="24_yb17e"]
 [ext_resource type="AudioStream" uid="uid://doy07s7n55tcx" path="res://bo/sounds/Fwomp 2.ogg" id="25_yb17e"]
 [ext_resource type="AudioStream" uid="uid://h02ajirkg3wt" path="res://bo/sounds/Fwomp 3.ogg" id="26_dwj2q"]
 [ext_resource type="AudioStream" uid="uid://bgc5y3qpmh8yf" path="res://bo/sounds/Fwomp 4.ogg" id="27_hiqaj"]
@@ -174,6 +175,11 @@ volume_db = 2.0
 pitch_scale = 2.8
 script = ExtResource("17_sfkc7")
 sounds = Array[AudioStream]([ExtResource("18_ouxom")])
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(0.9999994, 0.9999994)
+stream = ExtResource("24_yb17e")
+volume_db = -6.0
 
 [node name="CounterSound" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(0.99999976, 0.99999976)

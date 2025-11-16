@@ -33,9 +33,12 @@
 [ext_resource type="AudioStream" uid="uid://b3kxe25gcfmna" path="res://bo/sounds/Hurt 2.ogg" id="20_cxiyl"]
 [ext_resource type="AudioStream" uid="uid://b2cmxq4jjc8nd" path="res://bo/music/Lobby Theme final.mp3" id="29_cxiyl"]
 [ext_resource type="Theme" uid="uid://xw75b73m3iap" path="res://otto/menu.tres" id="33_80ttp"]
+[ext_resource type="PackedScene" uid="uid://chfo7c5uqbput" path="res://malte/tree.tscn" id="32_ox625"]
+[ext_resource type="Texture2D" uid="uid://386rnj7701n1" path="res://malte/tree/tree_1.png" id="33_5iunt"]
+[ext_resource type="Texture2D" uid="uid://eib5q7m0qj5n" path="res://malte/tree/tree_2.png" id="34_tko8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwq13"]
-size = Vector2(128, 128)
+size = Vector2(128, 36.42627)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pya1m"]
 
@@ -46,8 +49,15 @@ font = ExtResource("6_xeus7")
 
 [sub_resource type="LabelSettings" id="LabelSettings_6daep"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iunt"]
+size = Vector2(1029, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80ttp"]
+size = Vector2(84, 621)
+
 [node name="Start" type="Node2D"]
 script = ExtResource("1_ox625")
+metadata/_edit_vertical_guides_ = [-717.0]
 
 [node name="Lobby" type="Sprite2D" parent="."]
 position = Vector2(-0.00014150143, -399.4375)
@@ -90,6 +100,8 @@ visible = false
 texture = ExtResource("6_iyph2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(0, 41.03528)
+scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_nwq13")
 
 [node name="ShopKeeper" type="CharacterBody2D" parent="." node_paths=PackedStringArray("ui", "player", "typewriter")]
@@ -212,6 +224,7 @@ build_mode = 1
 polygon = PackedVector2Array(-14, -6, -29, -7, -29, -3, -30, 0, -37, -4, -41, -2, -39, -14, -50, -16, -42, -27, -48, -36, -41, -38, -38, -53, -26, -34, -14, -32, -17, -36, -2, -39, 14, -36, 21, -37, 24, -62, 30, -45, 44, -52, 36, -33, 48, -38, 41, -21, 51, -17, 36, -7, 13, -5, 11, 18, 4, 23, 8, 61, 2, 65, -1, 23, -7, 22, -34, 52, -41, 51, -20, 11, -13, 11)
 
 [node name="HUD" type="VBoxContainer" parent="."]
+z_index = 6
 offset_left = -515.0
 offset_top = -331.0
 offset_right = -100.0
@@ -293,6 +306,127 @@ layout_mode = 2
 text = "Start Game"
 
 [connection signal="damage_target" from="Player" to="Dummy" method="_on_player_damage_target"]
+[node name="Trees" type="Node2D" parent="."]
+position = Vector2(-528, -699)
+
+[node name="Tree" parent="Trees" instance=ExtResource("32_ox625")]
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree2" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(38, 18)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree3" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(10, 58)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree4" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(41, 99)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree5" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(2, 117)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree6" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(87, 145)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree7" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(36, 163)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree8" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(0, 195)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree9" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(56, 231)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree10" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(27, 246)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree11" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(-7, 279)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree12" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(50, 322)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree13" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(-10, 344)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree14" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(25, 391)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree15" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(2, 424)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree16" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(56, 460)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree17" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(13, 483)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree18" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(46, 516)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree19" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(3, 556)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree20" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(1052, 32)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree21" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(1082, 75)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree22" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(1065, 173)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree23" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(1069, 345)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree24" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(1065, 537)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="Tree25" parent="Trees" instance=ExtResource("32_ox625")]
+position = Vector2(1051, 460)
+sprites = Array[Texture2D]([ExtResource("33_5iunt"), ExtResource("34_tko8m")])
+
+[node name="World Edges" type="StaticBody2D" parent="."]
+position = Vector2(-797.53, -404.69324)
+
+[node name="Top Edge" type="CollisionShape2D" parent="World Edges"]
+position = Vector2(828.53, -373.30676)
+shape = SubResource("RectangleShape2D_5iunt")
+
+[node name="Bottom Edge" type="CollisionShape2D" parent="World Edges"]
+position = Vector2(812.53, 326.69324)
+shape = SubResource("RectangleShape2D_5iunt")
+
+[node name="Right Edge" type="CollisionShape2D" parent="World Edges"]
+position = Vector2(1333.53, 12.693237)
+shape = SubResource("RectangleShape2D_80ttp")
+
+[node name="Left Edge" type="CollisionShape2D" parent="World Edges"]
+position = Vector2(301.53003, 6.1932373)
+shape = SubResource("RectangleShape2D_80ttp")
+
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Health" to="ShopKeeper" method="_on_health_pressed"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Potion" to="ShopKeeper" method="_on_potion_pressed"]

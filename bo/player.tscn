@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://q7n36fbceqxr"]
+[gd_scene load_steps=43 format=3 uid="uid://q7n36fbceqxr"]
 
 [ext_resource type="Script" uid="uid://cqris1jou0uqo" path="res://bo/player.gd" id="1_lwegl"]
 [ext_resource type="Texture2D" uid="uid://qq5m1er5lcj6" path="res://bo/player/player_idle.png" id="2_h7ryt"]
@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://csxtojr716lf2" path="res://bo/sounds/Gold 3.ogg" id="35_d7jro"]
 [ext_resource type="AudioStream" uid="uid://dve6usehxme5m" path="res://bo/sounds/Gold 4.ogg" id="36_iugw0"]
 [ext_resource type="AudioStream" uid="uid://x7gtxxnuwlo7" path="res://otto/slurp.ogg" id="37_v82y5"]
+[ext_resource type="AudioStream" uid="uid://duas8wi3lbfck" path="res://bo/sounds/Death.mp3" id="38_d7jro"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lc5c0"]
 radius = 20.11
@@ -223,6 +224,10 @@ sounds = Array[AudioStream]([ExtResource("33_h67wi"), ExtResource("34_v82y5"), E
 
 [node name="Slurp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("37_v82y5")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("38_d7jro")
+volume_db = -12.0
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="body_entered" from="Hand/Sword" to="." method="_on_sword_body_entered"]

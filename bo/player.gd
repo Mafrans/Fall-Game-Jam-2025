@@ -231,6 +231,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if health <= 0:
 		boss.set_process(false)
 		is_dead = true
+		$Death.play()
 		($RespawnTimer as Timer).start()
 	
 	Engine.time_scale = 0.5
