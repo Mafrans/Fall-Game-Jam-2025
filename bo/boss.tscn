@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c6dv2bgjvkk5x"]
+[gd_scene load_steps=28 format=3 uid="uid://c6dv2bgjvkk5x"]
 
 [ext_resource type="Script" uid="uid://bwohgrtv5tvi" path="res://malte/boss.gd" id="1_rwpn6"]
 [ext_resource type="Script" uid="uid://de7dvgi7bja6w" path="res://malte/body.gd" id="2_148pb"]
@@ -16,6 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://dj5dqgxjtqtt1" path="res://malte/head_left.png" id="10_q3tm6"]
 [ext_resource type="Texture2D" uid="uid://c56ukpwwqupul" path="res://malte/head_right.png" id="11_10b6s"]
 [ext_resource type="Texture2D" uid="uid://t846dy1fdv8q" path="res://malte/head_damage.png" id="16_i7cgb"]
+[ext_resource type="Script" uid="uid://c6sog1d7jfs8j" path="res://bo/random_sound.gd" id="17_sfkc7"]
+[ext_resource type="AudioStream" uid="uid://c02l6ic21xv8n" path="res://bo/sounds/Dragon 1.ogg" id="18_ouxom"]
+[ext_resource type="AudioStream" uid="uid://dy4irvguipidi" path="res://bo/sounds/Dragon 2.ogg" id="19_hx1al"]
+[ext_resource type="AudioStream" uid="uid://c1sdsj0d4uncp" path="res://bo/sounds/Swoosh 1.ogg" id="20_irjoq"]
+[ext_resource type="AudioStream" uid="uid://1wffy111bf7e" path="res://bo/sounds/Swoosh 2.ogg" id="21_w8uns"]
+[ext_resource type="AudioStream" uid="uid://bn3wegm8ipero" path="res://bo/sounds/Swoosh 3.ogg" id="22_rjj6g"]
+[ext_resource type="AudioStream" uid="uid://bh6tmgi40gba5" path="res://bo/sounds/Swoosh 4.ogg" id="23_25vf1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwpn6"]
 radius = 132.85718
@@ -139,5 +146,25 @@ texture = ExtResource("9_udaof")
 position = Vector2(18.571426, 144.2858)
 
 [node name="CoughTimer" type="Timer" parent="."]
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+volume_db = 4.0
+script = ExtResource("17_sfkc7")
+sounds = Array[AudioStream]([ExtResource("18_ouxom"), ExtResource("19_hx1al")])
+
+[node name="SwooshSound" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
+volume_db = 2.0
+pitch_scale = 0.5
+script = ExtResource("17_sfkc7")
+sounds = Array[AudioStream]([ExtResource("20_irjoq"), ExtResource("21_w8uns"), ExtResource("22_rjj6g"), ExtResource("23_25vf1")])
+
+[node name="CoughSound" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(0.99999976, 0.99999976)
+stream = ExtResource("18_ouxom")
+volume_db = 2.0
+pitch_scale = 2.8
+script = ExtResource("17_sfkc7")
+sounds = Array[AudioStream]([ExtResource("18_ouxom")])
 
 [connection signal="timeout" from="CoughTimer" to="." method="_on_cough_timer_timeout"]

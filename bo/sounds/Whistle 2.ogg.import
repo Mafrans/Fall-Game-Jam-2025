@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bqmwgm0muyh7y"
+path="res://.godot/imported/Whistle 2.ogg-42bd2d2bdc0755b03372c93fe0ea9043.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Whistle 2.ogg"
+dest_files=["res://.godot/imported/Whistle 2.ogg-42bd2d2bdc0755b03372c93fe0ea9043.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

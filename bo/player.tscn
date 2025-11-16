@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://q7n36fbceqxr"]
+[gd_scene load_steps=41 format=3 uid="uid://q7n36fbceqxr"]
 
 [ext_resource type="Script" uid="uid://cqris1jou0uqo" path="res://bo/player.gd" id="1_lwegl"]
 [ext_resource type="Texture2D" uid="uid://qq5m1er5lcj6" path="res://bo/player/player_idle.png" id="2_h7ryt"]
@@ -15,6 +15,27 @@
 [ext_resource type="Texture2D" uid="uid://dpq5ksxdxmij1" path="res://bo/player/player_run_2.png" id="10_xwkbx"]
 [ext_resource type="Texture2D" uid="uid://balg6020oabdm" path="res://bo/player/player_run_3.png" id="11_slqka"]
 [ext_resource type="Texture2D" uid="uid://cmicgetipia2v" path="res://bo/player/player_run_4.png" id="12_ikjbt"]
+[ext_resource type="AudioStream" uid="uid://dccgoju3ceeyj" path="res://bo/sounds/Meaty Hit 2.ogg" id="16_tph15"]
+[ext_resource type="Script" uid="uid://c6sog1d7jfs8j" path="res://bo/random_sound.gd" id="17_o0vva"]
+[ext_resource type="AudioStream" uid="uid://c3g2ovh33b1jo" path="res://bo/sounds/Meaty Hit 1.ogg" id="18_ouju6"]
+[ext_resource type="AudioStream" uid="uid://dcbrurx4ql0fm" path="res://bo/sounds/Meaty Hit 3.ogg" id="19_xwkbx"]
+[ext_resource type="AudioStream" uid="uid://dcjjvf6or0ab0" path="res://bo/sounds/Step 1.ogg" id="20_vc4bs"]
+[ext_resource type="AudioStream" uid="uid://c5xlerc0df5ge" path="res://bo/sounds/Step 2.ogg" id="21_r685w"]
+[ext_resource type="AudioStream" uid="uid://cjmvi7ajuwdde" path="res://bo/sounds/Step 3.ogg" id="22_rqtag"]
+[ext_resource type="AudioStream" uid="uid://dfd2xqbhntdd" path="res://bo/sounds/Step 4.ogg" id="23_qb6nv"]
+[ext_resource type="AudioStream" uid="uid://cjx2fmwkt04wq" path="res://bo/sounds/Step 5.ogg" id="24_psgcw"]
+[ext_resource type="AudioStream" uid="uid://cyra7g8t6c7hn" path="res://bo/sounds/Step 6.ogg" id="25_r76xf"]
+[ext_resource type="AudioStream" uid="uid://dtpxh4fbcdnxh" path="res://bo/sounds/Woosh 1.ogg" id="26_psgcw"]
+[ext_resource type="AudioStream" uid="uid://cjudvm2tnvi6s" path="res://bo/sounds/Woosh 2.ogg" id="27_r76xf"]
+[ext_resource type="AudioStream" uid="uid://cmmksxnuq1va4" path="res://bo/sounds/Woosh 3.ogg" id="28_q3ykp"]
+[ext_resource type="AudioStream" uid="uid://c180t08jrgrro" path="res://bo/sounds/Woosh 4.ogg" id="29_08ceo"]
+[ext_resource type="AudioStream" uid="uid://cp77d1oq6a6i8" path="res://bo/sounds/Hurt 1.ogg" id="30_08ceo"]
+[ext_resource type="AudioStream" uid="uid://b3kxe25gcfmna" path="res://bo/sounds/Hurt 2.ogg" id="31_guyvb"]
+[ext_resource type="AudioStream" uid="uid://cqxg4pv6x05a" path="res://bo/sounds/Hurt 3.ogg" id="32_xccay"]
+[ext_resource type="AudioStream" uid="uid://cn5mnk64pepxx" path="res://bo/sounds/Gold 1.ogg" id="33_h67wi"]
+[ext_resource type="AudioStream" uid="uid://dwo8urodvcsfj" path="res://bo/sounds/Gold 2.ogg" id="34_v82y5"]
+[ext_resource type="AudioStream" uid="uid://csxtojr716lf2" path="res://bo/sounds/Gold 3.ogg" id="35_d7jro"]
+[ext_resource type="AudioStream" uid="uid://dve6usehxme5m" path="res://bo/sounds/Gold 4.ogg" id="36_iugw0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lc5c0"]
 radius = 20.11
@@ -165,6 +186,43 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoldPickup"]
 position = Vector2(2, -4)
 shape = SubResource("CapsuleShape2D_wfv7e")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_tph15")
+volume_db = 24.0
+bus = &"Effects"
+script = ExtResource("17_o0vva")
+sounds = Array[AudioStream]([ExtResource("18_ouju6"), ExtResource("16_tph15"), ExtResource("19_xwkbx")])
+
+[node name="StepSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_tph15")
+volume_db = -8.0
+pitch_scale = 2.0
+bus = &"Effects"
+script = ExtResource("17_o0vva")
+sounds = Array[AudioStream]([ExtResource("20_vc4bs"), ExtResource("21_r685w"), ExtResource("22_rqtag"), ExtResource("23_qb6nv"), ExtResource("24_psgcw"), ExtResource("25_r76xf")])
+
+[node name="RollSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_tph15")
+volume_db = 12.0
+pitch_scale = 0.6
+bus = &"Effects"
+script = ExtResource("17_o0vva")
+sounds = Array[AudioStream]([ExtResource("26_psgcw"), ExtResource("27_r76xf"), ExtResource("28_q3ykp"), ExtResource("29_08ceo")])
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_tph15")
+volume_db = 4.0
+bus = &"Effects"
+script = ExtResource("17_o0vva")
+sounds = Array[AudioStream]([ExtResource("30_08ceo"), ExtResource("31_guyvb"), ExtResource("32_xccay")])
+
+[node name="GoldSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_tph15")
+volume_db = 4.0
+bus = &"Effects"
+script = ExtResource("17_o0vva")
+sounds = Array[AudioStream]([ExtResource("33_h67wi"), ExtResource("34_v82y5"), ExtResource("35_d7jro"), ExtResource("36_iugw0")])
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="body_entered" from="Hand/Sword" to="." method="_on_sword_body_entered"]

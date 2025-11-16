@@ -158,6 +158,7 @@ func swipe(hand: Node2D, start: Node2D):
 	hand.set_hurtbox_active(true)
 	hand.preferred_position = swipe_end.global_position
 	hand.preferred_rotation = swipe_end.global_rotation
+	$SwooshSound.play_random()
 	await wait_secs(0.4)
 	hand.set_hurtbox_active(false)
 	await wait_secs(lerp(2., 1., stage_t()))
@@ -177,6 +178,7 @@ func double_swipe():
 	hand.set_hurtbox_active(true)
 	hand.preferred_position = swipe_end.global_position
 	hand.preferred_rotation = swipe_end.global_rotation
+	$SwooshSound.play_random()
 	
 	var other_hand = left_hand if use_right_hand else right_hand
 	var other_start = swipe_left_start if use_right_hand else swipe_right_start
@@ -193,6 +195,7 @@ func double_swipe():
 	other_hand.set_hurtbox_active(true)
 	other_hand.preferred_position = swipe_end.global_position
 	other_hand.preferred_rotation = swipe_end.global_rotation
+	$SwooshSound.play_random()
 	
 	await wait_secs(0.4)
 	other_hand.set_hurtbox_active(false)
@@ -219,6 +222,7 @@ func hover():
 	right_hand.preferred_position = final_target
 	right_hand.set_hurtbox_active(true)
 	right_hand.set_punch_sprite(true)
+	$SwooshSound.play_random()
 	await wait_secs(0.4)
 	
 	right_hand.set_hurtbox_active(false)
@@ -317,6 +321,7 @@ func counter():
 	var target = player.global_position + Vector2(0, -40)
 	
 	await wait_secs(0.8)
+	$SwooshSound.play_random()
 	hand.preferred_position = target
 	if use_right_hand:
 		hand.preferred_rotation = -PI / 4
@@ -357,11 +362,11 @@ func take_damage(amount: float) -> void:
 	head.on_damaged()
 	%Camera.shake(0.2, 20)
 	
+	$DamageSound.play_random()
+	
 	var new_stage = 5 - ceil((health / max_health) * 5)
-	print(new_stage)
 	if new_stage == current_stage:
 		return
-	
 	
 	current_stage = new_stage
 	cough(stage_cough_amount)
@@ -390,6 +395,8 @@ func cough(amount: int) -> void:
 		var vel = bullet_dir.normalized() * 200
 		(gold as FireBullet).velocity = vel
 		%Camera.shake(0.05, 5)
+	
+	$CoughSound.play_random()
 	
 	# cough
 	head.on_damaged()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjudvm2tnvi6s"
+path="res://.godot/imported/Woosh 2.ogg-90f74dcc13914c922fd77bd4f75d2f5a.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Woosh 2.ogg"
+dest_files=["res://.godot/imported/Woosh 2.ogg-90f74dcc13914c922fd77bd4f75d2f5a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

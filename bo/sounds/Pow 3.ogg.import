@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://oghjrnfb2bpq"
+path="res://.godot/imported/Pow 3.ogg-c64f03531568b8a22afbb8db2c71a0de.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Pow 3.ogg"
+dest_files=["res://.godot/imported/Pow 3.ogg-c64f03531568b8a22afbb8db2c71a0de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

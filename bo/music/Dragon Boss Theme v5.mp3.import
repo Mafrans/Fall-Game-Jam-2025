@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dinppq83rkmql"
+path="res://.godot/imported/Dragon Boss Theme v5.mp3-7513be1db57d980de0ee1067128af74b.mp3str"
+
+[deps]
+
+source_file="res://bo/music/Dragon Boss Theme v5.mp3"
+dest_files=["res://.godot/imported/Dragon Boss Theme v5.mp3-7513be1db57d980de0ee1067128af74b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

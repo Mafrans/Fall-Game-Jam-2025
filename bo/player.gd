@@ -47,6 +47,8 @@ var heal_pots := 0
 
 var is_dead := false
 
+var last_step := 0
+
 signal damage_target(power: float)
 
 @onready var hand = $Hand
@@ -83,7 +85,6 @@ func _physics_process(delta: float) -> void:
 	update_attack()
 	update_movement(delta)
 	update_heal_pot(delta)
-
 	
 	velocity += extra_velocity
 	extra_velocity *= 0.8
@@ -115,6 +116,7 @@ func update_movement(delta: float):
 				last_roll = time
 				stamina -= roll_stamina_drain
 				collider.disabled = true
+				$RollSound.play_random()
 	
 	if input.length() > 0:
 		last_input = input
@@ -127,6 +129,10 @@ func update_movement(delta: float):
 		velocity *= 0.25
 	if is_using_heal_pot:
 		velocity *= 0.25
+	
+	if input.length() > 0 and time - last_step > 350:
+		$StepSound.play_random()
+		last_step = time
 	
 	rotation = 0
 
@@ -190,6 +196,8 @@ func _on_sword_body_entered(body: Node2D) -> void:
 	
 	emit_signal("damage_target", 1 + Global.damage * 0.1)
 	
+	$HitSound.play_random()
+	
 	Engine.time_scale = 0.4
 	await wait_secs(0.08)
 	Engine.time_scale = 1
@@ -207,11 +215,11 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if is_invincible or is_dead:
 		return
 	
-	
 	is_invincible = true
 	($HitTimer as Timer).start()
 	
 	%Camera.shake(0.6, 150)
+	$DamageSound.play_random()
 	
 	extra_velocity -= last_input * 5.0
 	
@@ -237,3 +245,4 @@ func _on_respawn_timer_timeout() -> void:
 func _on_gold_pickup_area_entered(area: Area2D) -> void:
 	Global.gold += 1
 	area.queue_free()
+	$GoldSound.play_random()

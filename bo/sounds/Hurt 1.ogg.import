@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cp77d1oq6a6i8"
+path="res://.godot/imported/Hurt 1.ogg-0cabcbde47aa9fa2cc61f34fa1a68085.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Hurt 1.ogg"
+dest_files=["res://.godot/imported/Hurt 1.ogg-0cabcbde47aa9fa2cc61f34fa1a68085.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

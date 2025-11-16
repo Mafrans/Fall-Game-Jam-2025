@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dy4irvguipidi"
+path="res://.godot/imported/Dragon 2.ogg-6ca4acf1d1bbf7107527a68f93004b6c.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Dragon 2.ogg"
+dest_files=["res://.godot/imported/Dragon 2.ogg-6ca4acf1d1bbf7107527a68f93004b6c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

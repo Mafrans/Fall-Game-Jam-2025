@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnf138spp783t"
+path="res://.godot/imported/Pow 5.ogg-85d24629cb48011e9d410272535196b6.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Pow 5.ogg"
+dest_files=["res://.godot/imported/Pow 5.ogg-85d24629cb48011e9d410272535196b6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

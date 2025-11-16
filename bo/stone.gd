@@ -32,6 +32,7 @@ func _ready() -> void:
 	shadow.scale = Vector2(sprite_scale, sprite_scale)
 	
 	sprite.flip_h = rng.randf() > 0.5
+	$FallSound.play_random()
 
 func set_target(target: Vector2) -> void:
 	target_pos = target

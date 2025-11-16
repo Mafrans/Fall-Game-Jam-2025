@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bocetigxs2r6t"
+path="res://.godot/imported/Fwomp 6.ogg-c734248f5cc2c9293e1c3551e1f0c0ef.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Fwomp 6.ogg"
+dest_files=["res://.godot/imported/Fwomp 6.ogg-c734248f5cc2c9293e1c3551e1f0c0ef.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
