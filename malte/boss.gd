@@ -35,7 +35,7 @@ extends Node2D
 @onready var mouth: Node2D = $"Body/Head/Mouth"
 @onready var cough_timer := $CoughTimer
 
-
+var is_dead := false
 var health := 0.
 var delta := 0.
 
@@ -52,7 +52,6 @@ func stage_t() -> float:
 
 func _ready() -> void:
 	health = max_health
-	health = 1 # FIXME: fel hälsa
 	state_machine()
 	
 	set_cough_timer()
@@ -343,6 +342,7 @@ func wait_secs(secs: float):
 	await get_tree().create_timer(secs).timeout
 
 func die() -> void:
+	is_dead = true
 	$Body/Head/Sprite2D.modulate = Color(1, 0.1, 0.1, 1.0)
 	var tween = create_tween()
 	tween.tween_property(player, "position", Vector2(0, 300), 5.0)
