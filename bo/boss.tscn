@@ -156,7 +156,7 @@ position = Vector2(18.571426, 144.2858)
 [node name="CoughTimer" type="Timer" parent="."]
 
 [node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
-volume_db = 4.0
+volume_db = 2.0
 script = ExtResource("17_sfkc7")
 sounds = Array[AudioStream]([ExtResource("18_ouxom"), ExtResource("19_hx1al")])
 

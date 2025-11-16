@@ -185,7 +185,7 @@ shape = SubResource("CapsuleShape2D_wfv7e")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_tph15")
-volume_db = 24.0
+volume_db = 14.0
 bus = &"Effects"
 script = ExtResource("17_o0vva")
 sounds = Array[AudioStream]([ExtResource("18_ouju6"), ExtResource("16_tph15"), ExtResource("19_xwkbx")])
