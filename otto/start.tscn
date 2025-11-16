@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bc2oars1gbw84"]
+[gd_scene load_steps=46 format=3 uid="uid://bc2oars1gbw84"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_hhuon"]
 [ext_resource type="Texture2D" uid="uid://bqtqpnilwioku" path="res://malte/lobby.png" id="1_l7owo"]
@@ -280,6 +280,12 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Title" type="Sprite2D" parent="MainMenu"]
+z_index = 8
+position = Vector2(8.999985, -219.99998)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("35_25dlh")
+
 [node name="ColorRect" type="ColorRect" parent="MainMenu"]
 z_index = 6
 layout_mode = 0
@@ -320,6 +326,7 @@ theme = ExtResource("33_80ttp")
 [node name="Start" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 text = "Start Game"
+
 [node name="Trees" type="Node2D" parent="."]
 position = Vector2(-528, -699)
 
