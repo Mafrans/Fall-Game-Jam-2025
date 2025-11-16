@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://bc2oars1gbw84"]
+[gd_scene load_steps=39 format=3 uid="uid://bc2oars1gbw84"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_hhuon"]
 [ext_resource type="Texture2D" uid="uid://bqtqpnilwioku" path="res://malte/lobby.png" id="1_l7owo"]
+[ext_resource type="Script" uid="uid://cwxnu2f0ouvo1" path="res://otto/start.gd" id="1_ox625"]
 [ext_resource type="Script" uid="uid://d07smm1l12lok" path="res://bo/door.gd" id="2_54lrv"]
 [ext_resource type="Script" uid="uid://gqfpu0jufaf8" path="res://otto/shop_keeper.gd" id="4_i6ofk"]
 [ext_resource type="Script" uid="uid://dacxu0vph8nct" path="res://otto/ui.gd" id="5_pya1m"]
@@ -31,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://06yacqmagqqv" path="res://bo/sounds/Shopkeeper 9.ogg" id="19_1h0g5"]
 [ext_resource type="AudioStream" uid="uid://b3kxe25gcfmna" path="res://bo/sounds/Hurt 2.ogg" id="20_cxiyl"]
 [ext_resource type="AudioStream" uid="uid://b2cmxq4jjc8nd" path="res://bo/music/Lobby Theme final.mp3" id="29_cxiyl"]
+[ext_resource type="Theme" uid="uid://xw75b73m3iap" path="res://otto/menu.tres" id="33_80ttp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwq13"]
 size = Vector2(128, 128)
@@ -45,6 +47,7 @@ font = ExtResource("6_xeus7")
 [sub_resource type="LabelSettings" id="LabelSettings_6daep"]
 
 [node name="Start" type="Node2D"]
+script = ExtResource("1_ox625")
 
 [node name="Lobby" type="Sprite2D" parent="."]
 position = Vector2(-0.00014150143, -399.4375)
@@ -110,7 +113,7 @@ offset_left = -198.0
 offset_top = 61.0
 offset_right = -66.395004
 offset_bottom = 135.0
-theme = ExtResource("6_ti35s")
+theme = ExtResource("33_80ttp")
 theme_override_constants/v_separation = 8
 
 [node name="Health" type="Button" parent="ShopKeeper/UI/Shop"]
@@ -242,11 +245,52 @@ label_settings = SubResource("LabelSettings_6daep")
 script = ExtResource("17_3olfc")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 35)
 stream = ExtResource("29_cxiyl")
 volume_db = -20.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -393.0
+offset_bottom = -393.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+layout_mode = 0
+offset_left = -536.0
+offset_top = -310.0
+offset_right = -496.0
+offset_bottom = -270.0
+scale = Vector2(26.80239, 15.569953)
+color = Color(0.15686275, 0.15686275, 0.15686275, 0.50980395)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -20.0
+offset_right = 48.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("33_80ttp")
+
+[node name="Start" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
 
 [connection signal="damage_target" from="Player" to="Dummy" method="_on_player_damage_target"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
@@ -255,3 +299,4 @@ parameters/looping = true
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Speed" to="ShopKeeper" method="_on_speed_pressed"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Agility" to="ShopKeeper" method="_on_agility_pressed"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Damage" to="ShopKeeper" method="_on_damage_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Start" to="." method="_on_start_pressed"]

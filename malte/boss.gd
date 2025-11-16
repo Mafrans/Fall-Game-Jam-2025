@@ -350,6 +350,7 @@ func wait_secs(secs: float):
 
 func die() -> void:
 	is_dead = true
+	Global.gold += 10000
 	$Body/Head/Sprite2D.modulate = Color(1, 0.1, 0.1, 1.0)
 	var tween = create_tween()
 	tween.tween_property(player, "position", Vector2(0, 300), 5.0)
