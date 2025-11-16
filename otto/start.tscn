@@ -32,16 +32,10 @@
 [ext_resource type="AudioStream" uid="uid://06yacqmagqqv" path="res://bo/sounds/Shopkeeper 9.ogg" id="19_1h0g5"]
 [ext_resource type="AudioStream" uid="uid://b3kxe25gcfmna" path="res://bo/sounds/Hurt 2.ogg" id="20_cxiyl"]
 [ext_resource type="AudioStream" uid="uid://b2cmxq4jjc8nd" path="res://bo/music/Lobby Theme final.mp3" id="29_cxiyl"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" path="res://malte/tree.tscn" id="32_ox625"]
-[ext_resource type="Texture2D" uid="uid://386rnj7701n1" path="res://malte/tree/tree_1.png" id="33_5iunt"]
-[ext_resource type="Theme" uid="uid://xw75b73m3iap" path="res://otto/menu.tres" id="33_80ttp"]
-=======
 [ext_resource type="PackedScene" uid="uid://chfo7c5uqbput" path="res://malte/tree.tscn" id="32_ox625"]
 [ext_resource type="Texture2D" uid="uid://386rnj7701n1" path="res://malte/tree/tree_1.png" id="33_5iunt"]
 [ext_resource type="Theme" uid="uid://xw75b73m3iap" path="res://otto/menu.tres" id="33_80ttp"]
 [ext_resource type="VideoStream" uid="uid://l53xy1desc8m" path="res://malte/mainmenu.ogv" id="34_1h0g5"]
->>>>>>> 83b48f7 (Add main menu)
 [ext_resource type="Texture2D" uid="uid://eib5q7m0qj5n" path="res://malte/tree/tree_2.png" id="34_tko8m"]
 [ext_resource type="Texture2D" uid="uid://degn38erl0vcc" path="res://malte/title.png" id="35_25dlh"]
 
@@ -326,16 +320,6 @@ theme = ExtResource("33_80ttp")
 [node name="Start" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 text = "Start Game"
-
-<<<<<<< HEAD
-=======
-[node name="Title" type="Sprite2D" parent="MainMenu"]
-z_index = 8
-position = Vector2(-1, -213)
-scale = Vector2(0.19999999, 0.19999999)
-texture = ExtResource("35_25dlh")
-
->>>>>>> 83b48f7 (Add main menu)
 [node name="Trees" type="Node2D" parent="."]
 position = Vector2(-528, -699)
 
