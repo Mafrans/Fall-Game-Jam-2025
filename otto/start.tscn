@@ -60,14 +60,18 @@ scale = Vector2(0.6, 0.6)
 roll_duration = 0.3
 roll_dropoff = 200.0
 
+[node name="CaveArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CaveArea"]
+polygon = PackedVector2Array(-61, -610, -158, -602, -204, -636, -243, -634, -261, -653, -298, -670, -316, -1215, 309, -1215, 278, -700, 278, -683, 250, -675, 228, -654, 206, -654, 186, -647, 62, -611, 64, -837, -76, -830)
+
 [node name="Door" type="Area2D" parent="."]
 modulate = Color(0.5662982, 0.5662982, 0.5662982, 1)
-position = Vector2(0, -707)
-scale = Vector2(2.74, 0.265)
+position = Vector2(0, -744.015)
+scale = Vector2(0.941, 1.56)
 script = ExtResource("2_54lrv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
-visible = false
 texture = ExtResource("6_iyph2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
