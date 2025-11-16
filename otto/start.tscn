@@ -67,6 +67,7 @@ scale = Vector2(2.74, 0.265)
 script = ExtResource("2_54lrv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
+visible = false
 texture = ExtResource("6_iyph2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
