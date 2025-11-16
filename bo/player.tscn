@@ -117,17 +117,13 @@ height = 99.76
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lwegl")
-speed = 150.0
 max_stamina = 100.0
-stamina_regen = 25.0
-roll_speed = 700.0
 roll_cooldown = 0.5
 roll_duration = 0.35
 roll_dropoff = 250.0
 roll_stamina_drain = 35.0
 roll_stamina_penalty = 0.9
 roll_stamina_penalty_duration = 2.75
-max_heal_pots = 2
 heal_pot_duration = 1.5
 heal_pot_heal = 1
 attack_duration = 0.3

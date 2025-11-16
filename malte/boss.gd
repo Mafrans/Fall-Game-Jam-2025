@@ -282,7 +282,7 @@ func stone_rain() -> void:
 	if right:
 		right_hand.preferred_position = right_hand.global_position + Vector2(0, -75)
 	
-	for i in range(floor(lerp(4., 6., stage_t()))):
+	for i in range(floor(lerp(7., 10., stage_t()))):
 		var target_pos := Vector2(rng.randf_range(
 			stone_area_center.x - stone_area_size.x,
 			stone_area_center.x + stone_area_size.x

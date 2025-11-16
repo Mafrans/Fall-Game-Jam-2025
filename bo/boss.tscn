@@ -32,7 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://csx5y80vyewb6" path="res://bo/sounds/Fwomp 7.ogg" id="30_2ciy6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwpn6"]
-radius = 132.85718
+radius = 68.57144
 height = 305.71436
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_148pb"]
@@ -66,6 +66,7 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("CapsuleShape2D_rwpn6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
+z_index = -3
 position = Vector2(0, 158.57149)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_q3tm6")
