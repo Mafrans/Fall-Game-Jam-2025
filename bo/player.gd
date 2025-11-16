@@ -3,12 +3,12 @@ extends CharacterBody2D
 class_name Player
 
 @export var boss: Boss
-@export var speed: float
+var speed: float
 
 @export var max_stamina: float
-@export var stamina_regen: float
+var stamina_regen: float
 
-@export var roll_speed: float
+var roll_speed: float
 @export var roll_cooldown: float
 @export var roll_duration: float
 @export var roll_dropoff: float
@@ -18,7 +18,7 @@ class_name Player
 @export var roll_stamina_penalty_duration: float
 
 var max_health: int
-@export var max_heal_pots: int
+var max_heal_pots: int
 @export var heal_pot_duration: float
 @export var heal_pot_heal: int
 
@@ -67,6 +67,12 @@ func _ready() -> void:
 	max_health = Global.max_health
 	stamina = max_stamina
 	health = max_health
+	
+	speed = 150 + Global.speed * 15
+	roll_speed = 700 + Global.speed * 70
+	max_heal_pots = Global.potion
+	stamina_regen = 25 + 4 * Global.agility
+	
 	heal_pots = max_heal_pots
 
 func _physics_process(delta: float) -> void:
@@ -182,7 +188,7 @@ func _on_sword_body_entered(body: Node2D) -> void:
 	var direction := (position - body.position).normalized()
 	extra_velocity += attack_forward_thrust * direction * 1.5
 	
-	emit_signal("damage_target", 1.0)
+	emit_signal("damage_target", 1 + Global.damage * 0.1)
 	
 	Engine.time_scale = 0.4
 	await wait_secs(0.08)

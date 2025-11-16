@@ -9,14 +9,14 @@
 [ext_resource type="Theme" uid="uid://8ywflfwlqq8h" path="res://otto/start.tres" id="6_ti35s"]
 [ext_resource type="FontFile" uid="uid://dn3p083tt1e8b" path="res://otto/ModernAntiqua-Regular.ttf" id="6_xeus7"]
 [ext_resource type="Script" uid="uid://bertdsmf600i2" path="res://otto/dummy.gd" id="7_xeus7"]
-[ext_resource type="Script" path="res://otto/shop_guy.gd" id="8_1s5p4"]
+[ext_resource type="Script" uid="uid://b0m7yu5ni8coj" path="res://otto/shop_guy.gd" id="8_1s5p4"]
 [ext_resource type="Texture2D" uid="uid://bb2o2o0ufl0i2" path="res://malte/dummy.png" id="9_5k8ff"]
 [ext_resource type="Script" uid="uid://djfvsx0ew7aby" path="res://bo/heal_pots_display.gd" id="12_6ud2m"]
 [ext_resource type="PackedScene" uid="uid://bv2ljbcj0um21" path="res://bo/heal_pot.tscn" id="13_2mxkd"]
 [ext_resource type="Script" uid="uid://d2o32ba28400j" path="res://bo/health_display.gd" id="14_w5wpt"]
 [ext_resource type="PackedScene" uid="uid://ckaa52aa1p7sg" path="res://bo/heart.tscn" id="15_rf8lc"]
 [ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="16_l0fq7"]
-[ext_resource type="Script" uid="uid://5nfgbcurht0c" path="res://bo/gold_display.gd" id="17_3olfc"]
+[ext_resource type="Script" path="res://bo/gold_display.gd" id="17_3olfc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwq13"]
 size = Vector2(128, 128)
@@ -39,7 +39,6 @@ zoom = Vector2(1.8, 1.8)
 [node name="Player" parent="." instance=ExtResource("1_hhuon")]
 position = Vector2(0, -167)
 scale = Vector2(0.6, 0.6)
-roll_speed = 600.0
 roll_duration = 0.3
 roll_dropoff = 200.0
 
@@ -84,16 +83,31 @@ layout_mode = 2
 theme = ExtResource("6_ti35s")
 text = "+health (3 gold)"
 
+[node name="Potion" type="Button" parent="ShopKeeper/UI/Shop"]
+layout_mode = 2
+theme = ExtResource("6_ti35s")
+text = "+potion (6 gold)"
+
+[node name="Speed" type="Button" parent="ShopKeeper/UI/Shop"]
+layout_mode = 2
+theme = ExtResource("6_ti35s")
+text = "+speed (2 gold)"
+
 [node name="Agility" type="Button" parent="ShopKeeper/UI/Shop"]
 layout_mode = 2
 theme = ExtResource("6_ti35s")
-text = "+agility (3 gold)"
+text = "+agility (2 gold)"
+
+[node name="Damage" type="Button" parent="ShopKeeper/UI/Shop"]
+layout_mode = 2
+theme = ExtResource("6_ti35s")
+text = "+damage (3 gold)"
 
 [node name="ColorRect" type="ColorRect" parent="ShopKeeper/UI"]
-offset_left = -200.0
+offset_left = -198.0
 offset_top = -51.0
-offset_right = -72.0
-offset_bottom = 53.0
+offset_right = -65.0
+offset_bottom = 55.0
 theme = SubResource("Theme_ywhaf")
 color = Color(0.16, 0.16, 0.16, 0.78431374)
 
@@ -170,4 +184,7 @@ script = ExtResource("17_3olfc")
 [connection signal="damage_target" from="Player" to="Dummy" method="_on_player_damage_target"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Health" to="ShopKeeper" method="_on_health_pressed"]
+[connection signal="pressed" from="ShopKeeper/UI/Shop/Potion" to="ShopKeeper" method="_on_potion_pressed"]
+[connection signal="pressed" from="ShopKeeper/UI/Shop/Speed" to="ShopKeeper" method="_on_speed_pressed"]
 [connection signal="pressed" from="ShopKeeper/UI/Shop/Agility" to="ShopKeeper" method="_on_agility_pressed"]
+[connection signal="pressed" from="ShopKeeper/UI/Shop/Damage" to="ShopKeeper" method="_on_damage_pressed"]
