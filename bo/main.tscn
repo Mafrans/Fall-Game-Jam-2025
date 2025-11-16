@@ -74,7 +74,7 @@ heal_pot_duration = 1.75
 heal_pot_heal = 3
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player", "swipe_left_start", "swipe_right_start", "swipe_end") instance=ExtResource("5_dr3in")]
-position = Vector2(0, -776)
+position = Vector2(0, -744.00006)
 player = NodePath("../Player")
 swipe_left_start = NodePath("../Markers/SwipeLeftStart")
 swipe_right_start = NodePath("../Markers/SwipeRightStart")
@@ -105,7 +105,7 @@ rotation = -1.5707964
 position = Vector2(3, -307)
 
 [node name="Bossbar" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("9_fyjtl")]
-position = Vector2(0, -762)
+position = Vector2(0, -721)
 scale = Vector2(0.28, 0.28)
 boss = NodePath("../Boss")
 
@@ -155,7 +155,7 @@ bus = &"Music"
 parameters/looping = true
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2(0, 13)
+position = Vector2(0, 38)
 
 [node name="Background" type="AnimatedSprite2D" parent="Background"]
 z_index = -4
