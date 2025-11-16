@@ -318,6 +318,8 @@ func counter():
 	head.preferred_position = head.preferred_position + Vector2(0, -30)
 	hand.set_hurtbox_active(true)
 	
+	$CounterSound.play_random()
+	
 	var target = player.global_position + Vector2(0, -40)
 	
 	await wait_secs(0.8)

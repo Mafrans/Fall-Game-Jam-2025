@@ -23,7 +23,6 @@ func pay(amount: int) -> bool:
 	Global.gold -= amount
 	return true
 
-
 func _ready() -> void:
 	typewriter.autowrap_mode = TextServer.AUTOWRAP_WORD
 
@@ -40,6 +39,7 @@ func player_enter() -> void:
 	set_dialog(DIALOGS["welcome"])
 	ui.visible = true;
 	$UI/Shop/Health.grab_focus()
+	$InteractAudio.play_random()
 
 func player_leave() -> void:
 	is_active = false
@@ -55,9 +55,7 @@ func _process(delta: float) -> void:
 		player_enter()
 	elif player_distance > UI_DISTANCE + 50:
 		player_leave()
-
-	
-	
+		
 	if is_typing:
 		if typewriter.visible_ratio < 1:
 			typewriter.visible_ratio += text_speed * delta;
@@ -67,6 +65,7 @@ func _on_health_pressed() -> void:
 		Global.max_health += 1
 		player.health = Global.max_health
 		set_dialog(DIALOGS["success"])
+		$BuyAudio.play_random()
 	else:
 		set_dialog(DIALOGS["fail"])
 		mood_angry()
@@ -75,6 +74,7 @@ func _on_speed_pressed() -> void:
 	if pay(2):
 		Global.speed += 1
 		set_dialog(DIALOGS["success"])
+		$BuyAudio.play_random()
 	else:
 		set_dialog(DIALOGS["fail"])
 		mood_angry()
@@ -85,6 +85,7 @@ func _on_potion_pressed() -> void:
 		player.max_heal_pots = Global.potion
 		player.heal_pots = player.max_heal_pots
 		set_dialog(DIALOGS["success"])
+		$BuyAudio.play_random()
 	else:
 		set_dialog(DIALOGS["fail"])
 		mood_angry()
@@ -94,6 +95,7 @@ func _on_agility_pressed() -> void:
 	if pay(2):
 		Global.agility += 1
 		set_dialog(DIALOGS["success"])
+		$BuyAudio.play_random()
 	else:
 		set_dialog(DIALOGS["fail"])
 		mood_angry()
@@ -103,6 +105,10 @@ func _on_damage_pressed() -> void:
 	if pay(3):
 		Global.damage += 1
 		set_dialog(DIALOGS["success"])
+		$BuyAudio.play_random()
 	else:
 		set_dialog(DIALOGS["fail"])
 		mood_angry()
+
+func wait_secs(secs: float):
+	await get_tree().create_timer(secs).timeout
