@@ -52,6 +52,7 @@ func stage_t() -> float:
 
 func _ready() -> void:
 	health = max_health
+	health = 1 # FIXME: fel hälsa
 	state_machine()
 	
 	set_cough_timer()
@@ -341,9 +342,18 @@ func wait_frame():
 func wait_secs(secs: float):
 	await get_tree().create_timer(secs).timeout
 
+func die() -> void:
+	$Body/Head/Sprite2D.modulate = Color(1, 0.1, 0.1, 1.0)
+	var tween = create_tween()
+	tween.tween_property(player, "position", Vector2(0, 300), 5.0)
+	await tween.finished
+	await wait_frame()
+	get_tree().change_scene_to_file("res://otto/start.tscn")
 
-func _on_player_damage_target(power: float) -> void:
-	health -= power
+	
+
+func take_damage(amount: float) -> void:
+	health -= amount
 	head.on_damaged()
 	%Camera.shake(0.2, 20)
 	
@@ -360,7 +370,12 @@ func _on_player_damage_target(power: float) -> void:
 		max_concurrent_attacks = 2
 	elif new_stage >= 4:
 		max_concurrent_attacks = 3
+	
+	if health <= 0:
+		die()
 
+func _on_player_damage_target(power: float) -> void:
+	take_damage(power)
 
 func cough(amount: int) -> void:
 	var head_dir = Vector2(0, 1).rotated(mouth.global_rotation)

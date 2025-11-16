@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ckaa52aa1p7sg" path="res://bo/heart.tscn" id="9_v7fas"]
 [ext_resource type="Theme" uid="uid://8ywflfwlqq8h" path="res://otto/start.tres" id="10_133m2"]
 [ext_resource type="PackedScene" uid="uid://bv2ljbcj0um21" path="res://bo/heal_pot.tscn" id="10_v7fas"]
-[ext_resource type="Script" uid="uid://5nfgbcurht0c" path="res://bo/gold_display.gd" id="12_158ms"]
+[ext_resource type="Script" path="res://bo/gold_display.gd" id="12_158ms"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_133m2"]
 
