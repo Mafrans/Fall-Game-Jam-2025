@@ -27,7 +27,6 @@ var max_health: int
 @export var attack_forward_thrust: float
 @export var attack_forward_boost: float
 
-
 var last_roll := 0
 var last_input := Vector2.ZERO
 var is_rolling := false
@@ -150,7 +149,7 @@ func update_attack():
 		last_attack = time
 		extra_velocity += attack_forward_thrust * last_input
 		sprite.animation = "attack_1" if rng.randf() > 0.5 else "attack_2"
-		await wait_secs(0.2)
+		await wait_secs(0.05)
 		move_and_collide(attack_forward_boost * last_input)
 		set_sword_enabled(true)
 	else:
@@ -200,6 +199,8 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	is_invincible = true
 	($HitTimer as Timer).start()
 	
+	%Camera.shake(0.6, 150)
+	
 	extra_velocity -= last_input * 5.0
 	
 	health -= 1
@@ -207,6 +208,10 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		boss.set_process(false)
 		is_dead = true
 		($RespawnTimer as Timer).start()
+	
+	Engine.time_scale = 0.5
+	await wait_secs(0.2)
+	Engine.time_scale = 1
 
 
 func _on_hit_timer_timeout() -> void:
@@ -215,3 +220,8 @@ func _on_hit_timer_timeout() -> void:
 
 func _on_respawn_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://otto/start.tscn")
+
+
+func _on_gold_pickup_area_entered(area: Area2D) -> void:
+	Global.gold += 1
+	area.queue_free()

@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6dv2bgjvkk5x"]
+[gd_scene load_steps=21 format=3 uid="uid://c6dv2bgjvkk5x"]
 
 [ext_resource type="Script" uid="uid://bwohgrtv5tvi" path="res://malte/boss.gd" id="1_rwpn6"]
 [ext_resource type="Script" uid="uid://de7dvgi7bja6w" path="res://malte/body.gd" id="2_148pb"]
 [ext_resource type="Texture2D" uid="uid://cxqyxbjusseko" path="res://bo/Shadow.png" id="3_jrs63"]
 [ext_resource type="Texture2D" uid="uid://cdxeern22tvpg" path="res://malte/body.png" id="3_q3tm6"]
 [ext_resource type="Script" uid="uid://dw65a08ccqbt4" path="res://malte/left_hand.gd" id="4_10b6s"]
+[ext_resource type="Texture2D" uid="uid://bipe75jp2w0e4" path="res://malte/body_left.png" id="4_cbj66"]
+[ext_resource type="Texture2D" uid="uid://d0nmmtjyrg2ru" path="res://malte/body_right.png" id="5_i7cgb"]
 [ext_resource type="Texture2D" uid="uid://bty6yae20sns" path="res://malte/hand_left.png" id="5_jrs63"]
 [ext_resource type="Script" uid="uid://ch48yhjovlhfi" path="res://malte/right_hand.gd" id="6_u17vx"]
 [ext_resource type="Texture2D" uid="uid://d157grkutsbyn" path="res://malte/hand_right.png" id="7_cbj66"]
@@ -13,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dsu1xk054jv0c" path="res://malte/head.png" id="9_udaof"]
 [ext_resource type="Texture2D" uid="uid://dj5dqgxjtqtt1" path="res://malte/head_left.png" id="10_q3tm6"]
 [ext_resource type="Texture2D" uid="uid://c56ukpwwqupul" path="res://malte/head_right.png" id="11_10b6s"]
+[ext_resource type="Texture2D" uid="uid://t846dy1fdv8q" path="res://malte/head_damage.png" id="16_i7cgb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwpn6"]
 radius = 132.85718
@@ -31,10 +34,16 @@ radius = 100.0
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_rwpn6")
 max_health = 100.0
+max_concurrent_attacks = 1
+max_cough_interval = 10.0
+min_cough_interval = 4.0
 
 [node name="Body" type="CharacterBody2D" parent="."]
 position = Vector2(5.449567e-06, 91.42852)
 script = ExtResource("2_148pb")
+normal_sprite = ExtResource("3_q3tm6")
+left_sprite = ExtResource("4_cbj66")
+right_sprite = ExtResource("5_i7cgb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 position = Vector2(9.999995, 212.8572)
@@ -60,8 +69,9 @@ scale = Vector2(1.14, 1.14)
 texture = ExtResource("3_jrs63")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Left Hand"]
+z_index = 1
 position = Vector2(5.055751, 114.76888)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.78, 0.78)
 texture = ExtResource("5_jrs63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Left Hand"]
@@ -90,8 +100,9 @@ scale = Vector2(1.14, 1.14)
 texture = ExtResource("3_jrs63")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Right Hand"]
+z_index = 1
 position = Vector2(0, 99.43374)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.78, 0.78)
 texture = ExtResource("7_cbj66")
 
 [node name="PunchHand" type="Sprite2D" parent="Body/Right Hand"]
@@ -117,11 +128,16 @@ script = ExtResource("8_i7cgb")
 normal_sprite = ExtResource("9_udaof")
 left_sprite = ExtResource("11_10b6s")
 right_sprite = ExtResource("10_q3tm6")
+damaged_sprite = ExtResource("16_i7cgb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Head"]
 position = Vector2(3, 1)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("9_udaof")
 
 [node name="Mouth" type="Node2D" parent="Body/Head"]
 position = Vector2(18.571426, 144.2858)
+
+[node name="CoughTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CoughTimer" to="." method="_on_cough_timer_timeout"]

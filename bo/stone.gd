@@ -19,6 +19,7 @@ var target_pos := Vector2.ZERO
 
 var rng = RandomNumberGenerator.new()
 var sprite_scale := 0.
+var shaked := false
 
 func _ready() -> void:
 	fall_velocity = Vector2(0, start_speed)
@@ -51,6 +52,9 @@ func _process(delta: float) -> void:
 	if position.y > target_pos.y:
 		collider.disabled = false
 		hitbox.disabled = true
+		if not shaked:
+			ShakeableCamera.instance.shake(0.2, sprite_scale * 13)
+			shaked = true
 		#shadow.visible = false
 		return
 	

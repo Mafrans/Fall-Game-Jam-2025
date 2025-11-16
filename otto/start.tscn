@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7x3k0sjmxnyq"]
+[gd_scene load_steps=23 format=3 uid="uid://bc2oars1gbw84"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_hhuon"]
 [ext_resource type="Script" uid="uid://d07smm1l12lok" path="res://bo/door.gd" id="2_54lrv"]
@@ -9,8 +9,14 @@
 [ext_resource type="Theme" uid="uid://8ywflfwlqq8h" path="res://otto/start.tres" id="6_ti35s"]
 [ext_resource type="FontFile" uid="uid://dn3p083tt1e8b" path="res://otto/ModernAntiqua-Regular.ttf" id="6_xeus7"]
 [ext_resource type="Script" uid="uid://bertdsmf600i2" path="res://otto/dummy.gd" id="7_xeus7"]
-[ext_resource type="Script" uid="uid://b0m7yu5ni8coj" path="res://otto/shop_guy.gd" id="8_1s5p4"]
+[ext_resource type="Script" path="res://otto/shop_guy.gd" id="8_1s5p4"]
 [ext_resource type="Texture2D" uid="uid://bb2o2o0ufl0i2" path="res://malte/dummy.png" id="9_5k8ff"]
+[ext_resource type="Script" uid="uid://djfvsx0ew7aby" path="res://bo/heal_pots_display.gd" id="12_6ud2m"]
+[ext_resource type="PackedScene" uid="uid://bv2ljbcj0um21" path="res://bo/heal_pot.tscn" id="13_2mxkd"]
+[ext_resource type="Script" uid="uid://d2o32ba28400j" path="res://bo/health_display.gd" id="14_w5wpt"]
+[ext_resource type="PackedScene" uid="uid://ckaa52aa1p7sg" path="res://bo/heart.tscn" id="15_rf8lc"]
+[ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="16_l0fq7"]
+[ext_resource type="Script" uid="uid://5nfgbcurht0c" path="res://bo/gold_display.gd" id="17_3olfc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwq13"]
 size = Vector2(128, 128)
@@ -21,6 +27,8 @@ size = Vector2(128, 128)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1s5p4"]
 font = ExtResource("6_xeus7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6daep"]
 
 [node name="Start" type="Node2D"]
 
@@ -125,6 +133,39 @@ position = Vector2(-4.639984, -62.880005)
 scale = Vector2(1.2, 1.2)
 build_mode = 1
 polygon = PackedVector2Array(-14, -6, -29, -7, -29, -3, -30, 0, -37, -4, -41, -2, -39, -14, -50, -16, -42, -27, -48, -36, -41, -38, -38, -53, -26, -34, -14, -32, -17, -36, -2, -39, 14, -36, 21, -37, 24, -62, 30, -45, 44, -52, 36, -33, 48, -38, 41, -21, 51, -17, 36, -7, 13, -5, 11, 18, 4, 23, 8, 61, 2, 65, -1, 23, -7, 22, -34, 52, -41, 51, -20, 11, -13, 11)
+
+[node name="HUD" type="VBoxContainer" parent="."]
+offset_left = -515.0
+offset_top = -331.0
+offset_right = -100.0
+offset_bottom = -121.0
+alignment = 2
+
+[node name="HealPots" type="HBoxContainer" parent="HUD" node_paths=PackedStringArray("player")]
+layout_mode = 2
+script = ExtResource("12_6ud2m")
+heart = ExtResource("13_2mxkd")
+player = NodePath("../../Player")
+
+[node name="Hearts" type="HBoxContainer" parent="HUD" node_paths=PackedStringArray("player")]
+layout_mode = 2
+script = ExtResource("14_w5wpt")
+heart_scenes = Array[PackedScene]([ExtResource("15_rf8lc")])
+player = NodePath("../../Player")
+
+[node name="Stamina" type="ProgressBar" parent="HUD" node_paths=PackedStringArray("player")]
+layout_mode = 2
+theme = ExtResource("6_ti35s")
+value = 50.0
+script = ExtResource("16_l0fq7")
+player = NodePath("../../Player")
+
+[node name="Gold" type="Label" parent="HUD"]
+layout_mode = 2
+theme = ExtResource("6_ti35s")
+text = "50 gold"
+label_settings = SubResource("LabelSettings_6daep")
+script = ExtResource("17_3olfc")
 
 [connection signal="damage_target" from="Player" to="Dummy" method="_on_player_damage_target"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

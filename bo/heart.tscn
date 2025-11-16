@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckaa52aa1p7sg"]
+[gd_scene load_steps=10 format=3 uid="uid://ckaa52aa1p7sg"]
 
-[ext_resource type="Texture2D" uid="uid://7b6mx2llg4xa" path="res://icon.svg" id="1_6om0n"]
+[ext_resource type="Texture2D" uid="uid://dlgtls1dh0h7u" path="res://malte/heart/heart_1.png" id="1_6om0n"]
+[ext_resource type="Script" uid="uid://ml0eorrwvtc5" path="res://bo/ui_sprite.gd" id="2_vdr7g"]
+[ext_resource type="Texture2D" uid="uid://cy2erosgxam5e" path="res://malte/heart/heart_2.png" id="3_n6ah7"]
+[ext_resource type="Texture2D" uid="uid://vll7gfh87v2k" path="res://malte/heart/heart_3.png" id="4_ekpje"]
+[ext_resource type="Texture2D" uid="uid://3x4310hnea8k" path="res://malte/heart/heart_4.png" id="5_cmrdp"]
+[ext_resource type="Texture2D" uid="uid://dxqvyrlk0kaxs" path="res://malte/heart/heart_5.png" id="6_vsipl"]
+[ext_resource type="Texture2D" uid="uid://d02il80a10evt" path="res://malte/heart/heart_6.png" id="7_n8p4w"]
+[ext_resource type="Texture2D" uid="uid://dmeslq2o2bjn3" path="res://malte/heart/heart_7.png" id="8_y1esm"]
+[ext_resource type="Texture2D" uid="uid://c5mtjpicxvpok" path="res://malte/heart/heart_8.png" id="9_tvgym"]
 
 [node name="TextureRect" type="TextureRect"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(30, 30)
 texture = ExtResource("1_6om0n")
 expand_mode = 1
+script = ExtResource("2_vdr7g")
+textures = Array[Texture2D]([ExtResource("1_6om0n"), ExtResource("3_n6ah7"), ExtResource("4_ekpje"), ExtResource("5_cmrdp"), ExtResource("6_vsipl"), ExtResource("7_n8p4w"), ExtResource("8_y1esm"), ExtResource("9_tvgym")])

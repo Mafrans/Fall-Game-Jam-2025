@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://btk8fkjuuxqh5"]
+
+[ext_resource type="Script" uid="uid://djfvsx0ew7aby" path="res://bo/heal_pots_display.gd" id="1_oiqk2"]
+[ext_resource type="PackedScene" uid="uid://bv2ljbcj0um21" path="res://bo/heal_pot.tscn" id="2_qcrsd"]
+[ext_resource type="Script" uid="uid://d2o32ba28400j" path="res://bo/health_display.gd" id="3_34nvg"]
+[ext_resource type="PackedScene" uid="uid://ckaa52aa1p7sg" path="res://bo/heart.tscn" id="4_0va0u"]
+[ext_resource type="Theme" uid="uid://8ywflfwlqq8h" path="res://otto/start.tres" id="5_24uq3"]
+[ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="6_hov8j"]
+[ext_resource type="Script" uid="uid://5nfgbcurht0c" path="res://bo/gold_display.gd" id="7_ak3ng"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_133m2"]
+
+[node name="HUD" type="VBoxContainer"]
+offset_left = -622.0
+offset_top = -301.0
+offset_right = -207.0
+offset_bottom = -91.0
+alignment = 2
+
+[node name="HealPots" type="HBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("1_oiqk2")
+heart = ExtResource("2_qcrsd")
+
+[node name="Hearts" type="HBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("3_34nvg")
+heart_scenes = Array[PackedScene]([ExtResource("4_0va0u")])
+
+[node name="Stamina" type="ProgressBar" parent="."]
+layout_mode = 2
+theme = ExtResource("5_24uq3")
+value = 50.0
+script = ExtResource("6_hov8j")
+
+[node name="Gold" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("5_24uq3")
+text = "50 gold"
+label_settings = SubResource("LabelSettings_133m2")
+script = ExtResource("7_ak3ng")

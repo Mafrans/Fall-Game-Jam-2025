@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1hjdw32okhdy"]
+
+[ext_resource type="Script" uid="uid://c4yblubedfolc" path="res://bo/fire_bullet.gd" id="1_8dlo7"]
+[ext_resource type="Texture2D" uid="uid://cv77patiela8a" path="res://malte/fire_1/fire_1_1.png" id="2_aniax"]
+[ext_resource type="Texture2D" uid="uid://8ekp2frk1clo" path="res://malte/fire_1/fire_1_2.png" id="3_tq8jm"]
+[ext_resource type="Texture2D" uid="uid://bd5mnbmorqtof" path="res://malte/fire_1/fire_1_3.png" id="4_eh5ie"]
+[ext_resource type="Texture2D" uid="uid://c6mjhvtpmfypv" path="res://malte/fire_2/fire_2_1.png" id="5_py8ag"]
+[ext_resource type="Texture2D" uid="uid://cbchidr63rlm" path="res://malte/fire_2/fire_2_2.png" id="6_rqdb2"]
+[ext_resource type="Texture2D" uid="uid://ch43vk830wmov" path="res://malte/fire_2/fire_2_3.png" id="7_4faow"]
+[ext_resource type="Texture2D" uid="uid://cfl7u12lecc3d" path="res://malte/fire_3/fire_3_1.png" id="8_4nify"]
+[ext_resource type="Texture2D" uid="uid://claakfpkqtemo" path="res://malte/fire_3/fire_3_2.png" id="9_2npd1"]
+[ext_resource type="Texture2D" uid="uid://d0t1xem3rfr6g" path="res://malte/fire_3/fire_3_3.png" id="10_u3bk0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxd6k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aniax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tq8jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eh5ie")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_py8ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rqdb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4faow")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_4nify")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2npd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u3bk0")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xx4b5"]
+radius = 15.0
+
+[node name="GoldBullet" type="Area2D"]
+scale = Vector2(1.4, 1.4)
+collision_layer = 8
+script = ExtResource("1_8dlo7")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -11.999999)
+scale = Vector2(0.155, 0.155)
+sprite_frames = SubResource("SpriteFrames_pxd6k")
+animation = &"1"
+autoplay = "1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xx4b5")

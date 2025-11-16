@@ -1,8 +1,14 @@
 class_name Body
 extends CharacterBody2D
 
+@export var normal_sprite: Texture2D
+@export var left_sprite: Texture2D
+@export var right_sprite: Texture2D
+
 var preferred_position = Vector2()
 var preferred_rotation = 0
+
+@onready var sprite = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,3 +28,10 @@ func draw_neck(head: Head) -> void:
 func _process(delta: float) -> void:
 	global_position = lerp(global_position, preferred_position, delta * 3)
 	global_rotation = lerp(global_rotation, preferred_rotation, delta * 3)
+	
+	if global_rotation > PI / 25.:
+		sprite.texture = right_sprite
+	elif global_rotation < -PI / 25.:
+		sprite.texture = left_sprite
+	else:
+		sprite.texture = normal_sprite
