@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://da8jmv13vqfie"]
+[gd_scene load_steps=17 format=3 uid="uid://da8jmv13vqfie"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_dr3in"]
 [ext_resource type="Script" uid="uid://6arie7pmgkn8" path="res://bo/camera.gd" id="1_wwsl2"]
@@ -14,6 +14,8 @@
 [ext_resource type="Theme" uid="uid://8ywflfwlqq8h" path="res://otto/start.tres" id="10_133m2"]
 [ext_resource type="PackedScene" uid="uid://bv2ljbcj0um21" path="res://bo/heal_pot.tscn" id="10_v7fas"]
 [ext_resource type="Script" path="res://bo/gold_display.gd" id="12_158ms"]
+[ext_resource type="Script" uid="uid://5nfgbcurht0c" path="res://bo/gold_display.gd" id="12_158ms"]
+[ext_resource type="AudioStream" uid="uid://dinppq83rkmql" path="res://bo/music/Dragon Boss Theme v5.mp3" id="15_siobo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_133m2"]
 
@@ -102,6 +104,13 @@ script = ExtResource("12_158ms")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Premitier"]
 polygon = PackedVector2Array(640, -74, -640, -74, -640, -794, 640, -794, 640, -74, 2157, -81, 2137, -2045, -2216, -2079, -2296, 1393, 2204, 1406, 2151, 14, 2157, -81)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_siobo")
+volume_db = -19.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="damage_target" from="Player" to="Boss" method="_on_player_damage_target"]
 [connection signal="damage_target" from="Player" to="Bossbar" method="_on_player_damage_target"]

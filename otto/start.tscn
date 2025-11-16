@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bc2oars1gbw84"]
+[gd_scene load_steps=24 format=3 uid="uid://bc2oars1gbw84"]
 
 [ext_resource type="PackedScene" uid="uid://q7n36fbceqxr" path="res://bo/player.tscn" id="1_hhuon"]
 [ext_resource type="Script" uid="uid://d07smm1l12lok" path="res://bo/door.gd" id="2_54lrv"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ckaa52aa1p7sg" path="res://bo/heart.tscn" id="15_rf8lc"]
 [ext_resource type="Script" uid="uid://1hk44qns08hx" path="res://bo/stamina_display.gd" id="16_l0fq7"]
 [ext_resource type="Script" uid="uid://5nfgbcurht0c" path="res://bo/gold_display.gd" id="17_3olfc"]
+[ext_resource type="AudioStream" uid="uid://jww15xhnkn7x" path="res://bo/music/Lobby Theme v2.1.mp3" id="18_2mxkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwq13"]
 size = Vector2(128, 128)
@@ -166,6 +167,13 @@ theme = ExtResource("6_ti35s")
 text = "50 gold"
 label_settings = SubResource("LabelSettings_6daep")
 script = ExtResource("17_3olfc")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_2mxkd")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="damage_target" from="Player" to="Dummy" method="_on_player_damage_target"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

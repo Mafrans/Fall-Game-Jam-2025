@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7efcihrqeumh"
+path="res://.godot/imported/Fwomp 1.ogg-caba69d9ffae53087cdcf62bd9c99ac6.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Fwomp 1.ogg"
+dest_files=["res://.godot/imported/Fwomp 1.ogg-caba69d9ffae53087cdcf62bd9c99ac6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

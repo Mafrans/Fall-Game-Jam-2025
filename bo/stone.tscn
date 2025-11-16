@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhxr0ig54duvt"]
+[gd_scene load_steps=13 format=3 uid="uid://dhxr0ig54duvt"]
 
 [ext_resource type="Script" uid="uid://tp7xn6faxo71" path="res://bo/stone.gd" id="1_lrrgl"]
 [ext_resource type="Texture2D" uid="uid://byke3stntcscl" path="res://malte/rock_1.png" id="2_lrrgl"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bgvcu3r1rk3vs" path="res://malte/rock_3.png" id="4_86jrb"]
 [ext_resource type="Texture2D" uid="uid://buw4s5gm8h7k4" path="res://malte/rock_4.png" id="5_e4rrs"]
 [ext_resource type="Texture2D" uid="uid://cxqyxbjusseko" path="res://bo/Shadow.png" id="6_86jrb"]
+[ext_resource type="Script" uid="uid://c6sog1d7jfs8j" path="res://bo/random_sound.gd" id="7_rd7rp"]
+[ext_resource type="AudioStream" uid="uid://dlfmjbujq86dc" path="res://bo/sounds/Whistle 1.ogg" id="8_ajhbi"]
+[ext_resource type="AudioStream" uid="uid://bqmwgm0muyh7y" path="res://bo/sounds/Whistle 2.ogg" id="9_h1rvw"]
+[ext_resource type="AudioStream" uid="uid://bmlb5noqqehmf" path="res://bo/sounds/Whistle 3.ogg" id="10_0s7rb"]
+[ext_resource type="AudioStream" uid="uid://bp4q8pfxfucy3" path="res://bo/sounds/Whistle 4.ogg" id="11_3q2dm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_urq0n"]
 radius = 60.0
@@ -45,3 +50,7 @@ collision_layer = 2
 position = Vector2(5.3333335, -9.333334)
 scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_urq0n")
+
+[node name="FallSound" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("7_rd7rp")
+sounds = Array[AudioStream]([ExtResource("8_ajhbi"), ExtResource("9_h1rvw"), ExtResource("10_0s7rb"), ExtResource("11_3q2dm")])

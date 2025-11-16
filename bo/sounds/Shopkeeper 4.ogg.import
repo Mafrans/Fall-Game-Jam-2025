@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bhf7glvagvidp"
+path="res://.godot/imported/Shopkeeper 4.ogg-717b40ad707b70d7f8f41dacf65a072b.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Shopkeeper 4.ogg"
+dest_files=["res://.godot/imported/Shopkeeper 4.ogg-717b40ad707b70d7f8f41dacf65a072b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

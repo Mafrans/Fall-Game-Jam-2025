@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcbrurx4ql0fm"
+path="res://.godot/imported/Meaty Hit 3.ogg-ac7a11d5a891f0fe70a45a6b7d3817cd.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Meaty Hit 3.ogg"
+dest_files=["res://.godot/imported/Meaty Hit 3.ogg-ac7a11d5a891f0fe70a45a6b7d3817cd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

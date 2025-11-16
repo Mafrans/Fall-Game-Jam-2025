@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjx2fmwkt04wq"
+path="res://.godot/imported/Step 5.ogg-542b13d94625ae991eadc6ed58767ab9.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Step 5.ogg"
+dest_files=["res://.godot/imported/Step 5.ogg-542b13d94625ae991eadc6ed58767ab9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

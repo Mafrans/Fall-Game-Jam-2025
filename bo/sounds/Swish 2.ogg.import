@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://rglm41nqgeen"
+path="res://.godot/imported/Swish 2.ogg-e4c902b6cf01930d29680960d4ef7a9c.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Swish 2.ogg"
+dest_files=["res://.godot/imported/Swish 2.ogg-e4c902b6cf01930d29680960d4ef7a9c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://csxtojr716lf2"
+path="res://.godot/imported/Gold 3.ogg-05bb270a853b58f68d564ae6610acef5.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Gold 3.ogg"
+dest_files=["res://.godot/imported/Gold 3.ogg-05bb270a853b58f68d564ae6610acef5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

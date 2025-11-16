@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cyra7g8t6c7hn"
+path="res://.godot/imported/Step 6.ogg-a7cf36ee592c08364c3a883d52786702.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Step 6.ogg"
+dest_files=["res://.godot/imported/Step 6.ogg-a7cf36ee592c08364c3a883d52786702.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

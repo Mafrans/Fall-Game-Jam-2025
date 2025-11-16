@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dammaeudgwimp"
+path="res://.godot/imported/Pow 4.ogg-7d515c6b286702f1da33e48d1313a99b.oggvorbisstr"
+
+[deps]
+
+source_file="res://bo/sounds/Pow 4.ogg"
+dest_files=["res://.godot/imported/Pow 4.ogg-7d515c6b286702f1da33e48d1313a99b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
