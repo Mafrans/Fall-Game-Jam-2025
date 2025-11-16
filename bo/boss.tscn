@@ -78,10 +78,10 @@ texture = ExtResource("5_jrs63")
 position = Vector2(12.08423, 121.86287)
 shape = SubResource("CircleShape2D_148pb")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Body/Left Hand"]
+[node name="LeftHandBody2D" type="CharacterBody2D" parent="Body/Left Hand"]
 position = Vector2(10.369884, 36.148533)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Left Hand/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Left Hand/LeftHandBody2D"]
 position = Vector2(1.7143469, 85.71434)
 shape = SubResource("CircleShape2D_q3tm6")
 
@@ -115,9 +115,9 @@ texture = ExtResource("8_10b6s")
 position = Vector2(-2.1798274e-05, 111.42859)
 shape = SubResource("CircleShape2D_rwpn6")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Body/Right Hand"]
+[node name="RightHandBody2D" type="CharacterBody2D" parent="Body/Right Hand"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Right Hand/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Right Hand/RightHandBody2D"]
 position = Vector2(-2.1798274e-05, 111.42859)
 shape = SubResource("CircleShape2D_q3tm6")
 

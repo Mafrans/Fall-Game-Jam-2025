@@ -98,5 +98,10 @@ text = "50 gold"
 label_settings = SubResource("LabelSettings_133m2")
 script = ExtResource("12_158ms")
 
+[node name="Premitier" type="CharacterBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Premitier"]
+polygon = PackedVector2Array(640, -74, -640, -74, -640, -794, 640, -794, 640, -74, 2157, -81, 2137, -2045, -2216, -2079, -2296, 1393, 2204, 1406, 2151, 14, 2157, -81)
+
 [connection signal="damage_target" from="Player" to="Boss" method="_on_player_damage_target"]
 [connection signal="damage_target" from="Player" to="Bossbar" method="_on_player_damage_target"]

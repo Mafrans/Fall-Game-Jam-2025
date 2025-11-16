@@ -169,8 +169,14 @@ func update_heal_pot(delta: float) -> void:
 		started_heal_pot_at = time
 		sprite.animation = "heal"
 
+
 func _on_sword_body_entered(body: Node2D) -> void:
 	if body == self:
+		return
+		
+	var TARGETS = ["Dummy", "RightHandBody2D", "LeftHandBody2D", "Body"]
+	if not (body.name in TARGETS):
+		print("You can't hurt " + body.name)
 		return
 	
 	var direction := (position - body.position).normalized()
