@@ -61,6 +61,11 @@ scale = Vector2(0.6, 0.6)
 roll_duration = 0.3
 roll_dropoff = 200.0
 
+[node name="TentArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TentArea"]
+polygon = PackedVector2Array(362, -484, 295, -506, 225, -479, 240, -585, 300, -678, 363, -597)
+
 [node name="CaveArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CaveArea"]
