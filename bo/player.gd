@@ -174,9 +174,9 @@ func update_heal_pot(delta: float) -> void:
 			is_using_heal_pot = false
 		elif time - started_heal_pot_at > heal_pot_duration:
 			is_using_heal_pot = false
-			health += heal_pot_heal
+			health = min(health + heal_pot_heal, max_health)
 			heal_pots -= 1
-	elif Input.is_action_pressed("heal") and heal_pots >= 1:
+	elif Input.is_action_pressed("heal") and heal_pots >= 1 and health < max_health:
 		is_using_heal_pot = true
 		started_heal_pot_at = time
 		sprite.animation = "heal"
