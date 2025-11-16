@@ -28,12 +28,14 @@ sprite_scales = Array[float]([1.0, 0.75, 0.6, 0.4])
 
 [node name="Shadow" type="Sprite2D" parent="."]
 z_index = -1
+y_sort_enabled = true
 position = Vector2(4, 32)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_86jrb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.5716493, 0.5716493, 0.57164925, 1)
+y_sort_enabled = true
 position = Vector2(-3.9999998, -27)
 scale = Vector2(0.415, 0.415)
 texture = ExtResource("5_e4rrs")

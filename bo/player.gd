@@ -202,8 +202,8 @@ func _on_sword_body_entered(body: Node2D) -> void:
 	
 	$HitSound.play_random()
 	
-	Engine.time_scale = 0.5
-	await wait_secs(0.1)
+	Engine.time_scale = 0.6
+	await wait_secs(0.08)
 	Engine.time_scale = 1
 	
 

@@ -61,6 +61,7 @@ animations = [{
 [node name="FireBullet" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_1cts4")
+play_animation = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.80753297, 0.40781403, 0.17086047, 1)
