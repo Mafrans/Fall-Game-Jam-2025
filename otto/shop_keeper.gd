@@ -74,6 +74,8 @@ func _on_health_pressed() -> void:
 func _on_speed_pressed() -> void:
 	if pay(2):
 		Global.speed += 1
+		player.speed = 150 + Global.speed * 15
+		player.roll_speed = 700 + Global.speed * 70
 		set_dialog(DIALOGS["success"])
 	else:
 		set_dialog(DIALOGS["fail"])
